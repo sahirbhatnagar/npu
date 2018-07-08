@@ -2,7 +2,7 @@
 
 Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) and [Yi Yang](http://www.math.mcgill.ca/yyang/)
 
-**Date**: July 8-11, 2018
+**Date**: July 8-11, 2018  
 **Location**: Northwestern Polytechical University    
 **Slides**: [pdf](https://github.com/sahirbhatnagar/npu/blob/master/slides/npu-xian-2018.pdf)  
 
