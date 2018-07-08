@@ -1658,9 +1658,9 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
 \begin{block}{Objectives of this section}
 \begin{enumerate}
-\item Comprendre la syntaxe de la fonction \code{plot}
-\item Créer des \code{boxplot, histogram} et \code{density} plot
-\item Comment sauvegarder des graphiques
+\item Understand the syntax of the\code{plot} function
+\item Create \code{boxplot, histogram} and \code{density} plot
+\item How to save plots
 \end{enumerate}
 \end{block}
 }
@@ -1669,41 +1669,41 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 \setbeamercolor{normal text}{fg=gray,bg=white}
-\subsection{La fonction plot}
+\subsection{The plot function}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{La fonction \code{plot}}}
+  \Huge{\textcolor{red}{The \code{plot} function}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Introduction aux graphiques en R}
+\begin{frame}[fragile]{Introduction to R graphics}
 \begin{itemize}
   \setlength\itemsep{2em}
-  \item R offre une variété de graphiques remarquables 
-  \item Pour avoir une petite idée des possibilités offertes, il suffit de taper la commande \code{demo(graphics)} 
+  \item R offers lots of graphical tools 
+  \item To get an idea of what is possible, type the command \code{demo(graphics)} 
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[fragile]{La fonction \code{plot}}
+\begin{frame}[fragile]{The \code{plot} function}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item La fonction \code{plot} peut prendre plusieurs arguments et types d'objets
+\item The \code{plot} function can take several different inputs
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-31}\begin{alltt}
-\hlcom{# Plot des valeurs d'un vecteur contre leurs indices}
-\hlcom{# équivalent à plot(mtcars[,"mpg"])}
+\hlcom{# Plot vector values against the index}
+\hlcom{# equivalent to plot(mtcars[,"mpg"])}
 \hlkwd{plot}\hlstd{(mtcars}\hlopt{$}\hlstd{mpg,} \hlkwc{xlab} \hlstd{=} \hlstr{"Index"}\hlstd{,} \hlkwc{ylab} \hlstd{=} \hlstr{"mpg"}\hlstd{,}
-    \hlkwc{main} \hlstd{=} \hlstr{"Titre"}\hlstd{)}
+    \hlkwc{main} \hlstd{=} \hlstr{"Title"}\hlstd{)}
 
-\hlcom{# Graphique des couples (x, y)}
+\hlcom{# Scatterplot (x, y)}
 \hlkwd{plot}\hlstd{(mtcars}\hlopt{$}\hlstd{mpg, mtcars}\hlopt{$}\hlstd{disp,} \hlkwc{xlab} \hlstd{=} \hlstr{"mpg"}\hlstd{,}
 \hlkwc{ylab} \hlstd{=} \hlstr{"disp"}\hlstd{,} \hlkwc{main} \hlstd{=} \hlstr{"mpg vs. disp"}\hlstd{)}
 \end{alltt}
@@ -1713,23 +1713,22 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \end{frame}
 
 
-\begin{frame}[fragile]{La fonction \code{plot}}
+\begin{frame}[fragile]{The \code{plot} function}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
-\item La fonction \code{plot} peut aussi prendre un objet du modèle linéaire comme argument
-\pause \item Ceci est un exemple qui démontre pourquoi R est un langage orientée objet
+\item The \code{plot} function can also take a linear model object as input
+\pause \item This is an example of how R is an object oriented language
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-32}\begin{alltt}
-\hlcom{# importer 'mtcars.RData'}
-\hlkwd{load}\hlstd{(}\hlstr{"mtcars.RData"}\hlstd{)}
+\hlcom{# import 'mtcars.RData'}
+\hlkwd{load}\hlstd{(}\hlstr{"~/git_repositories/npu/script/mtcars.RData"}\hlstd{)}
 
-\hlcom{# Graphiques des 4 diagnostiques}
-\hlcom{# du modèle linéaire}
-\hlcom{# placer dans 2 rangés et 2 colonnes}
+\hlcom{# Diagnostic plots for linear model}
+\hlcom{# place in 2 rows and 2 columns}
 \hlkwd{par}\hlstd{(}\hlkwc{mfrow}\hlstd{=}\hlkwd{c}\hlstd{(}\hlnum{2}\hlstd{,}\hlnum{2}\hlstd{))}
 \hlkwd{plot}\hlstd{(fit)}
 \end{alltt}
@@ -1739,36 +1738,35 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \end{frame}
 
 
-\subsection{\code{histogram} et \code{boxplot}}
+\subsection{\code{histogram} and \code{boxplot}}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{\code{histogram} et \code{boxplot}}}
+  \Huge{\textcolor{red}{\code{histogram} and \code{boxplot}}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{La fonction \code{histogram}}
+\begin{frame}[fragile]{The \code{histogram} function}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
-  \item Utile pour voir la distribution des données
-\item Pour les données continues et univariées
+  \item Useful for seeing the data distribution
+\item For continuous univariate variables
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-33}\begin{alltt}
-\hlcom{# la taille de 237 étudiants disponibles dans le jeu}
-\hlcom{# de données 'survey' du library(MASS)}
+\hlcom{# height for 237 students}
+\hlcom{# in the 'survey' data of library(MASS)}
 \hlkwd{library}\hlstd{(MASS)}
 
-\hlcom{# voir le nom des colonnes}
+\hlcom{# see the names of the columns}
 \hlkwd{names}\hlstd{(survey)}
 
-\hlcom{# histogram de la taille et montrer la fréquence}
-\hlcom{# de chaque barre}
+\hlcom{# plot histogram of height}
 \hlkwd{hist}\hlstd{(survey}\hlopt{$}\hlstd{Height,} \hlkwc{labels} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1780,22 +1778,21 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\begin{frame}[fragile]{La fonction \code{boxplot}}
+\begin{frame}[fragile]{The \code{boxplot} function}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Utile pour voir la différence d'une variable continue parmi plusieurs groupes
+\item Useful for seeing if there's a difference between two groups
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-34}\begin{alltt}
-\hlcom{# visualiser la différence de taille entre les }
-\hlcom{# hommes et les femmes dans le jeux}
-\hlcom{# de données 'survey' du library(MASS)}
+\hlcom{# height for 237 students by gender}
+\hlcom{# in the 'survey' data of library(MASS)}
 
 \hlkwd{boxplot}\hlstd{(survey}\hlopt{$}\hlstd{Height} \hlopt{~} \hlstd{survey}\hlopt{$}\hlstd{Sex,}
-         \hlkwc{ylab} \hlstd{=} \hlstr{"Taille (cm)"}\hlstd{,}
+         \hlkwc{ylab} \hlstd{=} \hlstr{"Height (cm)"}\hlstd{,}
          \hlkwc{col} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"lightpink"}\hlstd{,}\hlstr{"lightblue"}\hlstd{))}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1804,12 +1801,12 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \end{frame}
 
 
-\begin{frame}[fragile]{Sauvegarder les graphiques}
+\begin{frame}[fragile]{Saving graphics}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item 2 fonctions principales: \code{pdf()} et \code{png()}
-\item l'argument de ces fonctions est le nom du fichier désiré
+\item 2 main functions: \code{pdf()} and \code{png()}
+\item the argument of these functions is the name of the file
 \end{itemize}
 \pause 
 \begin{knitrout}
@@ -1818,7 +1815,7 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \hlcom{# enregistrer dans le répertoire de travail courant}
 \hlkwd{pdf}\hlstd{(}\hlstr{"boxplot_survey.pdf"}\hlstd{)}
 \hlkwd{boxplot}\hlstd{(survey}\hlopt{$}\hlstd{Height} \hlopt{~} \hlstd{survey}\hlopt{$}\hlstd{Sex,}
-         \hlkwc{ylab} \hlstd{=} \hlstr{"Taille (cm)"}\hlstd{)}
+         \hlkwc{ylab} \hlstd{=} \hlstr{"Height (cm)"}\hlstd{)}
 \hlkwd{dev.off}\hlstd{()}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1828,18 +1825,18 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\subsection{Sommaire}
+\subsection{Summary}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Sommaire}}
+  \Huge{\textcolor{red}{Summary}}
  \end{center}
 \end{frame}
 
 
 
 
-\begin{frame}{Sommaire des commandes de graphiques}
+\begin{frame}{Summary of graphics commands}
  %\hspace*{-1.9cm}\parbox[t]{\textwidth}{
 \begin{tikzpicture}
 \node (expr) [startstop] {\code{plot()}
@@ -1855,13 +1852,13 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \code{dev.off()}\textcolor{beige}{textttt}}; 
 \draw[decoration={brace,raise=5pt, amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]expr.south west) -- ([yshift=1pt]expr.north west) node [black,midway,xshift=-3.1cm] 
-{\footnotesize Fonctions pour créer les graphiques};
+{\footnotesize Functions for creating graphics};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]fat.south west) -- ([yshift=1pt]fat.north west) node [black,midway,xshift=-3.4cm] 
-{\footnotesize Arguments communs pour ces fonctions};
+{\footnotesize Common arguments for these functions};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]script.south west) -- ([yshift=1pt]script.north west) node [black,midway,xshift=-3.5cm] 
-{\footnotesize Fonctions pour enregistrer les graphiques};
+{\footnotesize Function to save these graphics};
 \end{tikzpicture}
 %}
 \end{frame}
@@ -1883,28 +1880,27 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 \setbeamercolor{normal text}{fg=gray,bg=white}
 
-\subsection{Moyenne, écart type}
+\subsection{Mean, Standard Deviation}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Moyenne, écart type}}
+  \Huge{\textcolor{red}{Mean, Standard Deviation}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Moyenne, variance, écart type, minimum, maximum}
+\begin{frame}[fragile]{Mean, Standard Deviation, Minimum, Maximum}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item fonctions principales: \code{mean(), var(), sd(), min(), max()}
-\pause \item la fonction \code{summary()} est utile pour calculer quelques statistiques de bases pour un \textit{data frame}
+\item main functions: \code{mean(), var(), sd(), min(), max()}
+\pause \item the \code{summary()} function is useful for calculating statistics for a \code{data.frame}
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-36}\begin{alltt}
-\hlcom{# enregistrer dans le répertoire de travail courant}
 \hlkwd{summary}\hlstd{(mtcars)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1914,11 +1910,10 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\begin{frame}[fragile]{La fonction \code{apply}}
+\begin{frame}[fragile]{The \code{apply} function}
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Pour calculer des statistiques plus compliquées sur un \textit{data frame} (ou \textit{matrix}), on utilise la fonction \code{apply}
-\pause \item La fonction \code{apply} sert à appliquer une fonction quelconque sur une partie d'un \textit{matrix} ou \textit{data frame}
+\item To calculate more complicated summaries of a \textit{data frame} (or \textit{matrix}), we can use the \code{apply} function
 \end{itemize}
 
 
@@ -1926,22 +1921,22 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\begin{frame}[fragile]{La fonction \code{apply}}
+\begin{frame}[fragile]{The \code{apply} function}
 \begin{itemize}
   \setlength\itemsep{1em}
-\item La syntaxe de la fonction est la suivante:
+\item The function syntax is as follows:
 \begin{center}
 \code{apply(X, MARGIN, FUN)}
 \end{center}
-\item \code{X}: un matrix ou data frame
-\item \code{MARGIN}: 1 si l'on veut faire des calculs sur les rangées, 2 sur les colonnes
-\item \code{FUN}: est la fonction à appliquer
+\item \code{X}: a matrix or data frame
+\item \code{MARGIN}: 1 for rowwise summary, 2 for column wise summary
+\item \code{FUN}: is the function to apply
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-37}\begin{alltt}
-\hlcom{# variance par ligne}
+\hlcom{# variance by row}
 \hlkwd{apply}\hlstd{(mtcars,} \hlnum{1}\hlstd{, var)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1958,21 +1953,21 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\begin{frame}[fragile]{La fonction \code{apply}}
+\begin{frame}[fragile]{The \code{apply} function}
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-38}\begin{alltt}
-\hlcom{# variance par colonne}
+\hlcom{# variance by column}
 \hlkwd{apply}\hlstd{(mtcars,} \hlnum{2}\hlstd{, var)}
 
-\hlcom{# écart type par colonne}
+\hlcom{# sd by column}
 \hlkwd{apply}\hlstd{(mtcars,} \hlnum{2}\hlstd{, sd)}
 
-\hlcom{# minimum de chaque rangée}
+\hlcom{# minimum for each row}
 \hlkwd{apply}\hlstd{(mtcars,} \hlnum{1}\hlstd{, min)}
 
 
-\hlcom{# maximum de chaque rangée}
+\hlcom{# maximum for each row}
 \hlkwd{apply}\hlstd{(mtcars,} \hlnum{1}\hlstd{, max)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1985,31 +1980,28 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\subsection{Test t et analyse de variance}
+\subsection{t-test and ANOVA}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Test t et analyse de variance}}
+  \Huge{\textcolor{red}{t-test and ANOVA}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Test t}
+\begin{frame}[fragile]{t-test}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
-  \item la fonction pour faire un test t est \code{t.test()}
+  \item the function for doing a t-test is \code{t.test()}
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-39}\begin{alltt}
-\hlcom{# la taille de 237 étudiants disponible dans le jeux}
-\hlcom{# de données 'survey' du library(MASS)}
-\hlcom{# est-ce qu'il y a une différence de taille entre}
-\hlcom{# les hommes et les femmes?}
-
+\hlcom{# is there a difference in height between}
+\hlcom{# males and females}
 \hlkwd{t.test}\hlstd{(Height} \hlopt{~} \hlstd{Sex,} \hlkwc{data} \hlstd{= survey)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -2023,34 +2015,32 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\begin{frame}[fragile]{Analyse de variance}
+\begin{frame}[fragile]{Analysis of Variance (ANOVA)}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item La fonction pour l'analyse de variance est \code{aov}
-\pause \item Prenons un jeux de données disponible dans R: \code{InsectSprays}
-\pause \item 6 insecticides ont été testés 12 fois en culture, la réponse observée étant le nombre d'insectes
-\pause \item Le but c'est de voir s'il y a une différence importante entre les 6 insecticides par rapport à le nombre d'insectes
+\item The function for ANOVA is \code{aov}
+\pause \item Let's take for example the \code{InsectSprays} data in R
+\pause \item 6 insecticides were tested 12 times in culture, the response is the number of insects
+\pause \item The goal is to see if there is an important difference between the 6 insecticides with respect to the number of insects
 \end{itemize}
 
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Analyse de variance}
+\begin{frame}[fragile]{ANOVA}
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-40}\begin{alltt}
-\hlcom{# boxplot pour voir la différence entre}
-\hlcom{# les groupes}
+\hlcom{# boxplot to see the group difference}
 \hlkwd{boxplot}\hlstd{(InsectSprays}\hlopt{$}\hlstd{count} \hlopt{~} \hlstd{InsectSprays}\hlopt{$}\hlstd{spray)}
 
-\hlcom{# Les résultats ne sont pas affichés, ceux-ci sont }
-\hlcom{# copiés dans un objet nommé aov.spray}
+\hlcom{# Store it in an object called aov.spray}
 \hlstd{aov.spray} \hlkwb{<-} \hlkwd{aov}\hlstd{(count} \hlopt{~} \hlstd{spray,} \hlkwc{data} \hlstd{= InsectSprays)}
 
-\hlcom{# sommaire des résultats}
+\hlcom{# see results}
 \hlkwd{summary}\hlstd{(aov.spray)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -2061,16 +2051,16 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\subsection{Modèles linéaires}
+\subsection{Linear Regression}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Modèles linéaires}}
+  \Huge{\textcolor{red}{Linear Regression}}
  \end{center}
 \end{frame}
 
 
-\begin{frame}[fragile]{Les formules}
+\begin{frame}[fragile]{Formulas}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
@@ -2092,18 +2082,18 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\begin{frame}[fragile]{Modèles linéaires}
+\begin{frame}[fragile]{Linear Model}
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-41}\begin{alltt}
-\hlcom{# importer 'admit.txt'}
+\hlcom{# import 'admit.txt'}
 \hlstd{admit} \hlkwb{<-} \hlkwd{read.table}\hlstd{(}\hlstr{"admit.txt"}\hlstd{,} \hlkwc{header} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 
-\hlcom{# est-ce que gpa et rank sont reliés à gre}
+\hlcom{# are gpa and rank related to gre}
 \hlstd{fit} \hlkwb{<-} \hlkwd{lm}\hlstd{(gre} \hlopt{~} \hlstd{gpa}\hlopt{+}\hlstd{rank,} \hlkwc{data} \hlstd{= admit)}
 
-\hlcom{# voir les résultats}
+\hlcom{# see the results}
 \hlkwd{summary}\hlstd{(fit)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -2117,11 +2107,11 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-42}\begin{alltt}
-\hlcom{# régression logistique}
+\hlcom{# logistic regression}
 \hlstd{fit.glm} \hlkwb{<-} \hlkwd{glm}\hlstd{(admit} \hlopt{~} \hlstd{gre}\hlopt{+}\hlstd{gpa}\hlopt{+}\hlstd{rank,} \hlkwc{data} \hlstd{= admit,}
            \hlkwc{family} \hlstd{=} \hlkwd{binomial}\hlstd{(}\hlkwc{link} \hlstd{=} \hlstr{"logit"}\hlstd{))}
 
-\hlcom{# voir les résultats}
+\hlcom{# see results}
 \hlkwd{summary}\hlstd{(fit.glm)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -2132,18 +2122,18 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 
 
 
-\subsection{Sommaire}
+\subsection{Summary}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Sommaire}}
+  \Huge{\textcolor{red}{Summary}}
  \end{center}
 \end{frame}
 
 
 
 
-\begin{frame}{Sommaire des commandes de statistiques}
+\begin{frame}{Summary of Statistics Commands}
  %\hspace*{-1.9cm}\parbox[t]{\textwidth}{
 \begin{tikzpicture}
 \node (expr) [startstop] {\code{mean()}
@@ -2160,13 +2150,13 @@ save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
 \code{glm()}\textcolor{beige}{textdddttt}}; 
 \draw[decoration={brace,raise=5pt, amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]expr.south west) -- ([yshift=1pt]expr.north west) node [black,midway,xshift=-3.6cm] 
-{\footnotesize Fonctions pour des statistiques descriptives};
+{\footnotesize Functions for descriptive statistics};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]fat.south west) -- ([yshift=1pt]fat.north west) node [black,midway,xshift=-2.1cm] 
-{\footnotesize Tests statistiques};
+{\footnotesize Statistical Tests};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]script.south west) -- ([yshift=1pt]script.north west) node [black,midway,xshift=-3.4cm] 
-{\footnotesize Fonctions pour les modèles de régression};
+{\footnotesize Functions for regression models};
 \end{tikzpicture}
 %}
 \end{frame}

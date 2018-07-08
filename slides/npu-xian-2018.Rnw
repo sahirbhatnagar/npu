@@ -1412,9 +1412,9 @@ library(rmarkdown)
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
 \begin{block}{Objectives of this section}
 \begin{enumerate}
-\item Comprendre la syntaxe de la fonction \code{plot}
-\item Créer des \code{boxplot, histogram} et \code{density} plot
-\item Comment sauvegarder des graphiques
+\item Understand the syntax of the\code{plot} function
+\item Create \code{boxplot, histogram} and \code{density} plot
+\item How to save plots
 \end{enumerate}
 \end{block}
 }
@@ -1423,39 +1423,39 @@ library(rmarkdown)
 
 
 \setbeamercolor{normal text}{fg=gray,bg=white}
-\subsection{La fonction plot}
+\subsection{The plot function}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{La fonction \code{plot}}}
+  \Huge{\textcolor{red}{The \code{plot} function}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Introduction aux graphiques en R}
+\begin{frame}[fragile]{Introduction to R graphics}
 \begin{itemize}
   \setlength\itemsep{2em}
-  \item R offre une variété de graphiques remarquables 
-  \item Pour avoir une petite idée des possibilités offertes, il suffit de taper la commande \code{demo(graphics)} 
+  \item R offers lots of graphical tools 
+  \item To get an idea of what is possible, type the command \code{demo(graphics)} 
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}[fragile]{La fonction \code{plot}}
+\begin{frame}[fragile]{The \code{plot} function}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item La fonction \code{plot} peut prendre plusieurs arguments et types d'objets
+\item The \code{plot} function can take several different inputs
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# Plot des valeurs d'un vecteur contre leurs indices
-# équivalent à plot(mtcars[,"mpg"])
+# Plot vector values against the index
+# equivalent to plot(mtcars[,"mpg"])
 plot(mtcars$mpg, xlab = "Index", ylab = "mpg", 
-    main = "Titre") 
+    main = "Title") 
 
-# Graphique des couples (x, y)
+# Scatterplot (x, y)
 plot(mtcars$mpg, mtcars$disp, xlab = "mpg", 
 ylab = "disp", main = "mpg vs. disp")
 @
@@ -1463,21 +1463,20 @@ ylab = "disp", main = "mpg vs. disp")
 \end{frame}
 
 
-\begin{frame}[fragile]{La fonction \code{plot}}
+\begin{frame}[fragile]{The \code{plot} function}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
-\item La fonction \code{plot} peut aussi prendre un objet du modèle linéaire comme argument
-\pause \item Ceci est un exemple qui démontre pourquoi R est un langage orientée objet
+\item The \code{plot} function can also take a linear model object as input
+\pause \item This is an example of how R is an object oriented language
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# importer 'mtcars.RData'
-load("mtcars.RData") 
+# import 'mtcars.RData'
+load("~/git_repositories/npu/script/mtcars.RData") 
 
-# Graphiques des 4 diagnostiques
-# du modèle linéaire
-# placer dans 2 rangés et 2 colonnes
+# Diagnostic plots for linear model
+# place in 2 rows and 2 columns
 par(mfrow=c(2,2))
 plot(fit)
 @
@@ -1485,34 +1484,33 @@ plot(fit)
 \end{frame}
 
 
-\subsection{\code{histogram} et \code{boxplot}}
+\subsection{\code{histogram} and \code{boxplot}}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{\code{histogram} et \code{boxplot}}}
+  \Huge{\textcolor{red}{\code{histogram} and \code{boxplot}}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{La fonction \code{histogram}}
+\begin{frame}[fragile]{The \code{histogram} function}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
-  \item Utile pour voir la distribution des données
-\item Pour les données continues et univariées
+  \item Useful for seeing the data distribution
+\item For continuous univariate variables
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# la taille de 237 étudiants disponibles dans le jeu
-# de données 'survey' du library(MASS)
+# height for 237 students
+# in the 'survey' data of library(MASS)
 library(MASS) 
 
-# voir le nom des colonnes
+# see the names of the columns
 names(survey)
 
-# histogram de la taille et montrer la fréquence
-# de chaque barre
+# plot histogram of height
 hist(survey$Height, labels = TRUE)
 @
 
@@ -1522,39 +1520,38 @@ hist(survey$Height, labels = TRUE)
 
 
 
-\begin{frame}[fragile]{La fonction \code{boxplot}}
+\begin{frame}[fragile]{The \code{boxplot} function}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Utile pour voir la différence d'une variable continue parmi plusieurs groupes
+\item Useful for seeing if there's a difference between two groups
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# visualiser la différence de taille entre les 
-# hommes et les femmes dans le jeux
-# de données 'survey' du library(MASS)
+# height for 237 students by gender
+# in the 'survey' data of library(MASS)
 
 boxplot(survey$Height ~ survey$Sex, 
-         ylab = "Taille (cm)",
+         ylab = "Height (cm)",
          col = c("lightpink","lightblue"))
 @
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Sauvegarder les graphiques}
+\begin{frame}[fragile]{Saving graphics}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item 2 fonctions principales: \code{pdf()} et \code{png()}
-\item l'argument de ces fonctions est le nom du fichier désiré
+\item 2 main functions: \code{pdf()} and \code{png()}
+\item the argument of these functions is the name of the file
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
 # enregistrer dans le répertoire de travail courant
 pdf("boxplot_survey.pdf")
 boxplot(survey$Height ~ survey$Sex, 
-         ylab = "Taille (cm)")
+         ylab = "Height (cm)")
 dev.off()
 @
 
@@ -1562,18 +1559,18 @@ dev.off()
 
 
 
-\subsection{Sommaire}
+\subsection{Summary}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Sommaire}}
+  \Huge{\textcolor{red}{Summary}}
  \end{center}
 \end{frame}
 
 
 
 
-\begin{frame}{Sommaire des commandes de graphiques}
+\begin{frame}{Summary of graphics commands}
  %\hspace*{-1.9cm}\parbox[t]{\textwidth}{
 \begin{tikzpicture}
 \node (expr) [startstop] {\code{plot()}
@@ -1589,13 +1586,13 @@ dev.off()
 \code{dev.off()}\textcolor{beige}{textttt}}; 
 \draw[decoration={brace,raise=5pt, amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]expr.south west) -- ([yshift=1pt]expr.north west) node [black,midway,xshift=-3.1cm] 
-{\footnotesize Fonctions pour créer les graphiques};
+{\footnotesize Functions for creating graphics};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]fat.south west) -- ([yshift=1pt]fat.north west) node [black,midway,xshift=-3.4cm] 
-{\footnotesize Arguments communs pour ces fonctions};
+{\footnotesize Common arguments for these functions};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]script.south west) -- ([yshift=1pt]script.north west) node [black,midway,xshift=-3.5cm] 
-{\footnotesize Fonctions pour enregistrer les graphiques};
+{\footnotesize Function to save these graphics};
 \end{tikzpicture}
 %}
 \end{frame}
@@ -1617,26 +1614,25 @@ dev.off()
 
 \setbeamercolor{normal text}{fg=gray,bg=white}
 
-\subsection{Moyenne, écart type}
+\subsection{Mean, Standard Deviation}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Moyenne, écart type}}
+  \Huge{\textcolor{red}{Mean, Standard Deviation}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Moyenne, variance, écart type, minimum, maximum}
+\begin{frame}[fragile]{Mean, Standard Deviation, Minimum, Maximum}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item fonctions principales: \code{mean(), var(), sd(), min(), max()}
-\pause \item la fonction \code{summary()} est utile pour calculer quelques statistiques de bases pour un \textit{data frame}
+\item main functions: \code{mean(), var(), sd(), min(), max()}
+\pause \item the \code{summary()} function is useful for calculating statistics for a \code{data.frame}
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# enregistrer dans le répertoire de travail courant
 summary(mtcars)
 @
 \end{frame}
@@ -1644,11 +1640,10 @@ summary(mtcars)
 
 
 
-\begin{frame}[fragile]{La fonction \code{apply}}
+\begin{frame}[fragile]{The \code{apply} function}
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Pour calculer des statistiques plus compliquées sur un \textit{data frame} (ou \textit{matrix}), on utilise la fonction \code{apply}
-\pause \item La fonction \code{apply} sert à appliquer une fonction quelconque sur une partie d'un \textit{matrix} ou \textit{data frame}
+\item To calculate more complicated summaries of a \textit{data frame} (or \textit{matrix}), we can use the \code{apply} function
 \end{itemize}
 
 
@@ -1656,20 +1651,20 @@ summary(mtcars)
 
 
 
-\begin{frame}[fragile]{La fonction \code{apply}}
+\begin{frame}[fragile]{The \code{apply} function}
 \begin{itemize}
   \setlength\itemsep{1em}
-\item La syntaxe de la fonction est la suivante:
+\item The function syntax is as follows:
 \begin{center}
 \code{apply(X, MARGIN, FUN)}
 \end{center}
-\item \code{X}: un matrix ou data frame
-\item \code{MARGIN}: 1 si l'on veut faire des calculs sur les rangées, 2 sur les colonnes
-\item \code{FUN}: est la fonction à appliquer
+\item \code{X}: a matrix or data frame
+\item \code{MARGIN}: 1 for rowwise summary, 2 for column wise summary
+\item \code{FUN}: is the function to apply
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# variance par ligne
+# variance by row
 apply(mtcars, 1, var)
 @
 
@@ -1684,19 +1679,19 @@ apply(mtcars, 1, var)
 
 
 
-\begin{frame}[fragile]{La fonction \code{apply}}
+\begin{frame}[fragile]{The \code{apply} function}
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# variance par colonne
+# variance by column
 apply(mtcars, 2, var)
 
-# écart type par colonne
+# sd by column
 apply(mtcars, 2, sd)
 
-# minimum de chaque rangée
+# minimum for each row
 apply(mtcars, 1, min)
 
 
-# maximum de chaque rangée
+# maximum for each row
 apply(mtcars, 1, max)
 @
 
@@ -1707,29 +1702,26 @@ apply(mtcars, 1, max)
 
 
 
-\subsection{Test t et analyse de variance}
+\subsection{t-test and ANOVA}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Test t et analyse de variance}}
+  \Huge{\textcolor{red}{t-test and ANOVA}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Test t}
+\begin{frame}[fragile]{t-test}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
-  \item la fonction pour faire un test t est \code{t.test()}
+  \item the function for doing a t-test is \code{t.test()}
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# la taille de 237 étudiants disponible dans le jeux
-# de données 'survey' du library(MASS)
-# est-ce qu'il y a une différence de taille entre
-# les hommes et les femmes?
-
+# is there a difference in height between
+# males and females
 t.test(Height ~ Sex, data = survey)
 @
 
@@ -1741,32 +1733,30 @@ t.test(Height ~ Sex, data = survey)
 
 
 
-\begin{frame}[fragile]{Analyse de variance}
+\begin{frame}[fragile]{Analysis of Variance (ANOVA)}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item La fonction pour l'analyse de variance est \code{aov}
-\pause \item Prenons un jeux de données disponible dans R: \code{InsectSprays}
-\pause \item 6 insecticides ont été testés 12 fois en culture, la réponse observée étant le nombre d'insectes
-\pause \item Le but c'est de voir s'il y a une différence importante entre les 6 insecticides par rapport à le nombre d'insectes
+\item The function for ANOVA is \code{aov}
+\pause \item Let's take for example the \code{InsectSprays} data in R
+\pause \item 6 insecticides were tested 12 times in culture, the response is the number of insects
+\pause \item The goal is to see if there is an important difference between the 6 insecticides with respect to the number of insects
 \end{itemize}
 
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Analyse de variance}
+\begin{frame}[fragile]{ANOVA}
 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# boxplot pour voir la différence entre
-# les groupes
+# boxplot to see the group difference
 boxplot(InsectSprays$count ~ InsectSprays$spray)
 
-# Les résultats ne sont pas affichés, ceux-ci sont 
-# copiés dans un objet nommé aov.spray
+# Store it in an object called aov.spray
 aov.spray <- aov(count ~ spray, data = InsectSprays)
 
-# sommaire des résultats
+# see results
 summary(aov.spray)
 @
 
@@ -1775,16 +1765,16 @@ summary(aov.spray)
 
 
 
-\subsection{Modèles linéaires}
+\subsection{Linear Regression}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Modèles linéaires}}
+  \Huge{\textcolor{red}{Linear Regression}}
  \end{center}
 \end{frame}
 
 
-\begin{frame}[fragile]{Les formules}
+\begin{frame}[fragile]{Formulas}
 
 \begin{itemize}
   \setlength\itemsep{1.5em}
@@ -1806,16 +1796,16 @@ summary(aov.spray)
 
 
 
-\begin{frame}[fragile]{Modèles linéaires}
+\begin{frame}[fragile]{Linear Model}
 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# importer 'admit.txt'
+# import 'admit.txt'
 admit <- read.table("admit.txt", header = TRUE)
 
-# est-ce que gpa et rank sont reliés à gre
+# are gpa and rank related to gre
 fit <- lm(gre ~ gpa+rank, data = admit)
 
-# voir les résultats
+# see the results
 summary(fit)
 @
 
@@ -1825,11 +1815,11 @@ summary(fit)
 \begin{frame}[fragile]{GLM}
 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# régression logistique
+# logistic regression
 fit.glm <- glm(admit ~ gre+gpa+rank, data = admit, 
            family = binomial(link = "logit"))
 
-# voir les résultats
+# see results
 summary(fit.glm)
 @
 
@@ -1838,18 +1828,18 @@ summary(fit.glm)
 
 
 
-\subsection{Sommaire}
+\subsection{Summary}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Sommaire}}
+  \Huge{\textcolor{red}{Summary}}
  \end{center}
 \end{frame}
 
 
 
 
-\begin{frame}{Sommaire des commandes de statistiques}
+\begin{frame}{Summary of Statistics Commands}
  %\hspace*{-1.9cm}\parbox[t]{\textwidth}{
 \begin{tikzpicture}
 \node (expr) [startstop] {\code{mean()}
@@ -1866,13 +1856,13 @@ summary(fit.glm)
 \code{glm()}\textcolor{beige}{textdddttt}}; 
 \draw[decoration={brace,raise=5pt, amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]expr.south west) -- ([yshift=1pt]expr.north west) node [black,midway,xshift=-3.6cm] 
-{\footnotesize Fonctions pour des statistiques descriptives};
+{\footnotesize Functions for descriptive statistics};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]fat.south west) -- ([yshift=1pt]fat.north west) node [black,midway,xshift=-2.1cm] 
-{\footnotesize Tests statistiques};
+{\footnotesize Statistical Tests};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]script.south west) -- ([yshift=1pt]script.north west) node [black,midway,xshift=-3.4cm] 
-{\footnotesize Fonctions pour les modèles de régression};
+{\footnotesize Functions for regression models};
 \end{tikzpicture}
 %}
 \end{frame}

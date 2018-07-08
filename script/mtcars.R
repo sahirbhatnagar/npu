@@ -23,3 +23,5 @@ fit <- lm(mpg ~ disp, data=df)
 
 # sommaire des résultat
 summary(fit)
+
+save(fit, file = "script/mtcars.RData")
