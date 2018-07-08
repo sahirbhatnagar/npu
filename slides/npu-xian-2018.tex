@@ -172,7 +172,7 @@
 %\subtitle{An introduction to programming in R}
 
 \author[]{Sahir Bhatnagar and Yi Yang%
-\thanks{\href{https://github.com/sahirbhatnagar/atelier-R-GERAD}{https://github.com/sahirbhatnagar/atelier-R-GERAD}%
+\thanks{\href{https://github.com/sahirbhatnagar/npu}{https://github.com/sahirbhatnagar/npu}%
 }}
 
 \date{July 8 -- 11, 2018}
@@ -691,19 +691,18 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-6}\begin{alltt}
-\hlcom{# Générer la suite 1, 2, ..., 20.}
+\hlcom{# generate a sequence 1, 2, ..., 20.}
 \hlstd{x} \hlkwb{<-} \hlnum{1}\hlopt{:}\hlnum{20}
 
-\hlcom{# créer un autre vecteur en fonction de x}
-\hlstd{y} \hlkwb{<-} \hlnum{2}\hlopt{*}\hlstd{x}\hlopt{+}\hlnum{3}
+\hlcom{# create another vector as a function of x}
+\hlstd{y} \hlkwb{<-} \hlnum{2} \hlopt{*} \hlstd{x} \hlopt{+} \hlnum{3}
 
-\hlcom{# créer un data frame de deux colonnes et}
-\hlcom{# voir sa matière }
+\hlcom{# create a data.frame and see its contents}
 \hlstd{dt} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(x, y)}
 \hlstd{dt}
 
-\hlcom{# estimer un modèle linéaire et voir les}
-\hlcom{# résultats}
+\hlcom{# run a linear regression and see the }
+\hlcom{# results}
 \hlstd{fit} \hlkwb{<-} \hlkwd{lm}\hlstd{(y} \hlopt{~} \hlstd{x,} \hlkwc{data} \hlstd{= dt)}
 \hlkwd{summary}\hlstd{(fit)}
 \end{alltt}
@@ -714,20 +713,18 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 \endgroup
 
 
-\begin{comment}
 \begin{frame}[fragile, plain]
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-7}\begin{alltt}
-\hlcom{# La fonction ’seq’ sert à générer des suites }
-\hlcom{# plus générales.}
+\hlcom{# The ’seq’ function will generate more general sequences }
 \hlkwd{seq}\hlstd{(}\hlkwc{from} \hlstd{=} \hlopt{-}\hlnum{5}\hlstd{,} \hlkwc{to} \hlstd{=} \hlnum{10}\hlstd{,} \hlkwc{by} \hlstd{=} \hlnum{3}\hlstd{)}
 \hlkwd{seq}\hlstd{(}\hlkwc{from} \hlstd{=} \hlopt{-}\hlnum{5}\hlstd{,} \hlkwc{length} \hlstd{=} \hlnum{10}\hlstd{)}
 
-\hlcom{# La fonction ’rep’ sert à répéter des valeurs.}
-\hlkwd{rep}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{5}\hlstd{)} \hlcom{# répéter 1 cinq fois}
-\hlkwd{rep}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{5}\hlstd{,} \hlnum{5}\hlstd{)} \hlcom{# répéter le vecteur 1,...,5 cinq fois}
-\hlkwd{rep}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{5}\hlstd{,} \hlkwc{each} \hlstd{=} \hlnum{5}\hlstd{)} \hlcom{# répéter chaque élément cinq fois}
+\hlcom{#’rep’ repeats values}
+\hlkwd{rep}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{5}\hlstd{)} \hlcom{# repeat 1, 5 times}
+\hlkwd{rep}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{5}\hlstd{,} \hlnum{5}\hlstd{)} \hlcom{# repeat the vector 1,...,5,  five times}
+\hlkwd{rep}\hlstd{(}\hlnum{1}\hlopt{:}\hlnum{5}\hlstd{,} \hlkwc{each} \hlstd{=} \hlnum{5}\hlstd{)} \hlcom{# repeat each element five times}
 \end{alltt}
 \end{rcode}\end{kframe}
 \end{knitrout}
@@ -739,19 +736,16 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-8}\begin{alltt}
-\hlcom{# Arithmétique vectorielle}
-\hlstd{v} \hlkwb{<-} \hlnum{1}\hlopt{:}\hlnum{12}  \hlcom{# initialisation d’un vecteur}
-\hlstd{v} \hlopt{+} \hlnum{2} \hlcom{# additionner 2 à chaque élément de v}
-\hlstd{v} \hlopt{* -}\hlnum{12}\hlopt{:-}\hlnum{1} \hlcom{# produit élément par élément}
-\hlstd{v} \hlopt{+} \hlnum{1}\hlopt{:}\hlnum{3} \hlcom{# le vecteur le plus court est recyclé}
+\hlcom{# vector arithmetic}
+\hlstd{v} \hlkwb{<-} \hlnum{1}\hlopt{:}\hlnum{12}  \hlcom{# initialize a vector}
+\hlstd{v} \hlopt{+} \hlnum{2} \hlcom{# add 2 to each element of the vector}
+\hlstd{v} \hlopt{* -}\hlnum{12}\hlopt{:-}\hlnum{1} \hlcom{# element-wise product}
+\hlstd{v} \hlopt{+} \hlnum{1}\hlopt{:}\hlnum{3} \hlcom{# the shortest vector is recycled}
 
-\hlcom{# Vecteur de nombres uniformes sur }
-\hlcom{# l’intervalle [1, 10]. Le point-virgule}
-\hlcom{# signifie une nouvelle ligne}
+\hlcom{# Generate random uniform(1,10) numbers }
 \hlstd{v} \hlkwb{<-} \hlkwd{runif}\hlstd{(}\hlnum{12}\hlstd{,} \hlkwc{min} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{max} \hlstd{=} \hlnum{10}\hlstd{); v}
 
-\hlcom{# Pour afficher le résultat d’une affectation,}
-\hlcom{# placer la commande entre parenthèses.}
+\hlcom{# You can place the call in parentheses to see the result}
 \hlstd{( v} \hlkwb{<-} \hlkwd{runif}\hlstd{(}\hlnum{12}\hlstd{,} \hlkwc{min} \hlstd{=} \hlnum{1}\hlstd{,} \hlkwc{max} \hlstd{=} \hlnum{10}\hlstd{) )}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -789,13 +783,13 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 
 
 
-\section{2.Bases du langage R}
+\section{2. Basics of R}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
  \begin{center}
-  \Huge{\textcolor{white}{2. Bases du langage R}}
+  \Huge{\textcolor{white}{2. Basics of R}}
  \end{center}
  }
 \end{frame}
@@ -803,13 +797,13 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 \setbeamercolor{normal text}{fg=black,bg=background}
 \begin{frame}[plain]
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
-\begin{block}{Objectifs du chapitre}
+\begin{block}{Objectives of this section}
 \begin{enumerate}
-\item Comprendre ce qui est un fonction et comment l'utiliser
-\item Identifier les principaux types d'objets dans R: \code{vector, matrix, data frame} et \code{list} 
-\item Cr\'{e}er et manipuler ces objets
-\item Importer des fichiers \code{.txt} et \code{.csv}
-\item Installer un \textit{package}
+\item Understand what a function is and how to use it
+\item Identify the main objects in R: \code{vector, matrix, data frame} and \code{list} 
+\item Create and manipulate these objects
+\item Import some external datasets \code{.txt} et \code{.csv}
+\item Install a \textit{package}
 \end{enumerate}
 \end{block}
 }
@@ -820,26 +814,26 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 \setbeamercolor{normal text}{fg=gray,bg=white}
 
 
-\subsection{Les fonctions}
+\subsection{Functions}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Les fonctions}}
+  \Huge{\textcolor{red}{Functions}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}{Définition et appel de fonctions}
+\begin{frame}{Definition of a Function}
 \begin{itemize}
  \setlength\itemsep{2em}
-\item Plutôt que d'écrire plusieurs lignes de codes pour des choses assez simples et répétitives on fait appel à des \textbf{fonctions}
-\pause \item Une fonction est caractérisée par deux composantes:
+\item Instead of writing many repetitive lines of code, we call \textbf{functions} instead
+\pause \item A function is characterised by two components
 \pause 
 \begin{enumerate}
 \normalsize
-\item son \textbf{nom}: c'est ce nom qui nous permettra d'appeler la fonction
-\pause \item une \textbf{liste d'arguments}: ce sont les informations dont la fonction a besoin pour travailler et renvoyer son résultat
+\item It's \textbf{name}: this name allows the user to call the function
+\pause \item a \textbf{list of arguments}: this is the information the function needs to return a proper result
 \end{enumerate}
 \end{itemize}
 \end{frame}
@@ -848,23 +842,23 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 
 
 
-\begin{frame}[fragile]{La syntaxe pour appeler une fonction}
+\begin{frame}[fragile]{Function syntax}
 \begin{itemize}
  \setlength\itemsep{2em}
-\item Il faut écrire son nom suivi de parenthèses
-\pause \item Entre ces parenthèses, nous indiquerons les arguments dont la fonction a besoin:
+\item You have to write the name of the function followed by two parentheses
+\pause \item The required arguments between these two parentheses are what the function requires to execute it:
 \begin{center}
-\code{nom\_de\_la\_fonction(arguments)}
+\code{name\_of\_the\_function(arguments)}
 \end{center}
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-10}\begin{alltt}
-\hlcom{# chercher la rubrique d'aide pour racine carrée}
+\hlcom{# look at the help page for square root function}
 \hlopt{?}\hlstd{sqrt}
 
-\hlcom{# on voit que la fonction prend un argument}
+\hlcom{# we see that the sqrt function takes one argument}
 \hlkwd{sqrt}\hlstd{(}\hlnum{49}\hlstd{)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -874,25 +868,25 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 
 
 
-\begin{frame}[fragile]{Arguments facultatifs}
+\begin{frame}[fragile]{Optional arguments}
 \begin{itemize}
  \setlength\itemsep{0.5em}
-\item Certaines fonctions nécessitent plusieurs arguments et certains de ces arguments sont optionnels (aussi possible d'avoir aucun argument: \code{getwd()}) 
-\pause \item Les arguments optionnels possèdent une valeur par défaut
-\pause \item Si on ne spécifie pas de valeur, ces arguments prendront la valeur définie par défaut, sinon ils prendront la valeur spécifiée
+\item Certain functions have optional arguments while others have no arguments at all: \code{getwd()}) 
+\pause \item The optional arguments have a default value 
+\pause \item If we do not specify the optional argument, then the function will use the default, else it will use the argument value specified
 \end{itemize}
 \pause 
 
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-11}\begin{alltt}
-\hlcom{# chercher la rubrique d'aide pour logarithme}
+\hlcom{# look at the help for the logarithm function}
 \hlopt{?}\hlstd{log}
 
-\hlcom{# on ne précise pas de valeur pour le second argument}
+\hlcom{# we don't need to specify a value for the 2nd argument }
 \hlkwd{log}\hlstd{(}\hlnum{2}\hlstd{)}
 
-\hlcom{# On peut spécifier le second argument en l'appelant par son nom}
+\hlcom{# we can specify the second argument if we want}
 \hlkwd{log}\hlstd{(}\hlnum{2}\hlstd{,} \hlkwc{base} \hlstd{=} \hlkwd{exp}\hlstd{(}\hlnum{1}\hlstd{))}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -903,11 +897,11 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 
 
 
-\subsection{Les objets R}
+\subsection{R Objects}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Les objets R}}
+  \Huge{\textcolor{red}{R Objects}}
  \end{center}
 \end{frame}
 
@@ -928,7 +922,7 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 
 
 
-\begin{frame}{Les objets R}
+\begin{frame}{R Objects}
 
 %\begin{itemize}
 %  \setlength\itemsep{2em}
@@ -941,10 +935,10 @@ Published in \href{http://www.nature.com/news/programming-tools-adventures-with-
 %\pause \item Cela donne lieu à 5 types de données les plus souvent utilisées %dans l'analyse des données:
 %\end{itemize}
 %\pause 
-\ctable[caption={Les principaux objets en R et le nom de leurs fonctions},label=tab:table1,pos=h!,doinside=\small]{ccccc}{\tnote{tous les éléments doivent être du même type}\tnote[b]{les éléments peuvent être de différents types}
+\ctable[caption={The principal R objects and their name},label=tab:table1,pos=h!,doinside=\small]{ccccc}{\tnote{all the elements have to be of the same type}\tnote[b]{the elements can be of different types}
 }{
     																\FL
-dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
+dimension	&  & same type\tmark	    &	& different type\tmark[b] \ML
 1d & & Atomic vector & & List \NN
    & &    \code{c()} & & \code{list()} \ML
 2d & & Matrix & & Data frame \NN
@@ -958,8 +952,8 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item En R, à toutes fins pratiques, tout est un vecteur
-\pause \item La fonction de base pour créer un vecteur est \code{c()} (concaténation)
+\item In R, everything is a vector
+\pause \item The function to create a vector is \code{c()} (concatenation)
 \end{itemize}
 \pause
 \begin{knitrout}
@@ -982,9 +976,9 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Les quatre types d'\textit{atomic vectors} les plus utilisés: 
+\item Frequently used \textit{atomic vectors}: 
 \begin{enumerate}
-\item \textit{double} (également appelé \textit{numeric})
+\item \textit{double} (also called \textit{numeric})
 \item \textit{integer}
 \item \textit{character}
 \item \textit{logical}
@@ -996,7 +990,7 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 \begin{rcode}\label{unnamed-chunk-13}\begin{alltt}
 \hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,} \hlnum{2.5}\hlstd{,} \hlnum{4.5}\hlstd{)} \hlcom{# numeric}
 \hlkwd{c}\hlstd{(}\hlnum{1L}\hlstd{,} \hlnum{6L}\hlstd{,} \hlnum{10L}\hlstd{)} \hlcom{# integer}
-\hlkwd{c}\hlstd{(}\hlstr{"ceci sont"}\hlstd{,} \hlstr{"des characters"}\hlstd{)} \hlcom{#character}
+\hlkwd{c}\hlstd{(}\hlstr{"these are"}\hlstd{,} \hlstr{"characters"}\hlstd{)} \hlcom{#character}
 \hlkwd{c}\hlstd{(}\hlnum{TRUE}\hlstd{,} \hlnum{FALSE}\hlstd{, T, F)} \hlcom{# logical}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1009,13 +1003,12 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 
 
 
-\begin{comment}
 \begin{frame}[fragile]{Test}
 
 \begin{itemize}
   %\setlength\itemsep{1em}
-\item \code{typeof()}: pour savoir quel type de vector
-\item \code{is.character(), is.double(), is.integer(), is.logical(), is.atomic()}: pour vérifier si c'est un cas spécifique 
+\item \code{typeof()}: to find out the type of vector
+\item \code{is.character(), is.double(), is.integer(), is.logical(), is.atomic()}: for case specific types 
 \end{itemize}
 \pause
 \begin{knitrout}\footnotesize
@@ -1073,16 +1066,15 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 \end{knitrout}
 
 \end{frame}
-\end{comment}
 
 
 \begin{frame}[fragile]{\textit{Coercion}}
 
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Tous les éléments d'un \textit{atomic vector} doivent être du même type
-\pause \item Lorsque vous essayez de combiner différents types, ils seront convertis au type le plus flexible
-\pause \item Types du moins au plus flexible sont:
+\item All the elements of an \textit{atomic vector} must be of the same type
+\pause \item When you try to combine several types, it will convert everything to the most flexible type
+\pause \item From least flexible to most flexible:
 \begin{enumerate}
 \item \textit{logical} 
 \item \textit{integer} 
@@ -1093,7 +1085,7 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-16}\begin{alltt}
-\hlcom{# combiner un character et integer donne un character}
+\hlcom{# combine a character and an interger will produce what?}
 \hlkwd{str}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"a"}\hlstd{,} \hlnum{1}\hlstd{))}
 \end{alltt}
 \begin{verbatim}
@@ -1107,7 +1099,7 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 
 \begin{frame}[fragile]{\textit{Coercion}}
 \begin{itemize}
-\item La plupart des opérations mathématiques vont convertir un \textit{atomic vector} à un \textit{double} ou \textit{integer}
+\item Most mathematical operations will convert an \textit{atomic vector} into a \textit{double} or \textit{integer}
 \end{itemize}
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
@@ -1119,14 +1111,14 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 ## [1] 0 0 1
 \end{verbatim}
 \begin{alltt}
-\hlcom{# Nombre total de TRUE}
+\hlcom{# Number of TRUE}
 \hlkwd{sum}\hlstd{(x)}
 \end{alltt}
 \begin{verbatim}
 ## [1] 1
 \end{verbatim}
 \begin{alltt}
-\hlcom{# La proportion de TRUE}
+\hlcom{# Proportion of TRUE}
 \hlkwd{mean}\hlstd{(x)}
 \end{alltt}
 \begin{verbatim}
@@ -1141,8 +1133,8 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 
 \begin{itemize}
   %\setlength\itemsep{2em}
-\item Les \textit{lists} sont différent des \textit{atomic vectors} parce que leurs éléments peuvent \^{e}tre de tout type
-\item La fonction pour créer un \textit{list} est \code{list()}
+\item \textit{lists} are different from \textit{atomic vectors} because the elements will be of the same type
+\item The function to create a \textit{list} is a \code{list()}
 \end{itemize}
 \pause
 \begin{knitrout}\footnotesize
@@ -1199,15 +1191,15 @@ names & & étiquettes des éléments d’un objet\LL
 
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Les matrices ne sont rien d'autre que des vecteurs en 2 dimensions
-\pause \item Surtout utilisées pour faire les calculs mathématiques (pensez à vos cours d'algèbre linéaire)
-\pause \item La fonction pour créer un \textit{matrix} est \code{matrix()}
+\item Matrices are nothing but vectors in 2 dimensions
+\pause \item Used for mathematical computations (think of linear algebra courses)
+\pause \item The function to create a \textit{matrix} is \code{matrix()}
 \end{itemize}
 \pause
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-19}\begin{alltt}
-\hlcom{# rempli par colonne par défaut}
+\hlcom{# filled by column by defaults}
 \hlkwd{matrix}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{2}\hlstd{,}\hlnum{3}\hlstd{,}\hlnum{4}\hlstd{,}\hlnum{5}\hlstd{,}\hlnum{6}\hlstd{),} \hlkwc{nrow} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{ncol} \hlstd{=} \hlnum{3}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
@@ -1226,7 +1218,7 @@ names & & étiquettes des éléments d’un objet\LL
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-20}\begin{alltt}
-\hlcom{# automatiquement converti en données homogènes}
+\hlcom{# automatically converted to same data type}
 \hlkwd{matrix}\hlstd{(}\hlkwd{c}\hlstd{(}\hlnum{1}\hlstd{,}\hlnum{2}\hlstd{,}\hlnum{3}\hlstd{,}\hlstr{"a"}\hlstd{,}\hlstr{"b"}\hlstd{,}\hlstr{"c"}\hlstd{),} \hlkwc{nrow} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{ncol} \hlstd{=} \hlnum{3}\hlstd{)}
 \end{alltt}
 \begin{verbatim}
@@ -1247,24 +1239,24 @@ names & & étiquettes des éléments d’un objet\LL
 
 \begin{itemize}
   \setlength\itemsep{0.5em}
-\item Le \textit{data frame} est un tableau de données hétérogènes
+\item The \textit{data frame} is a collection of vectors of different types
 %\pause \item Utiliser lorsque différents sortes de données ont étés collecter sur les m\^{e}mes sujets (essaie clinique) 
-\pause \item La fonction pour créer un \textit{data frame} est \code{data.frame()}
+\pause \item The function to create a \textit{data frame} is \code{data.frame()}
 \end{itemize}
 \pause
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-21}\begin{alltt}
-\hlcom{# une colonne 'id' pour identifier les sujets}
-\hlcom{# une colonne 'age' pour leur age}
-\hlkwd{data.frame}\hlstd{(}\hlkwc{id} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"didier"}\hlstd{,}\hlstr{"patrice"}\hlstd{,}\hlstr{"laurent"}\hlstd{),}
+\hlcom{# an 'id'  column to identify the individuals}
+\hlcom{# an 'age' column for their age}
+\hlkwd{data.frame}\hlstd{(}\hlkwc{id} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"yi"}\hlstd{,}\hlstr{"yang"}\hlstd{,}\hlstr{"zhengzin"}\hlstd{),}
            \hlkwc{age} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{37}\hlstd{,}\hlnum{34}\hlstd{,}\hlnum{32}\hlstd{))}
 \end{alltt}
 \begin{verbatim}
-##        id age
-## 1  didier  37
-## 2 patrice  34
-## 3 laurent  32
+##         id age
+## 1       yi  37
+## 2     yang  34
+## 3 zhengzin  32
 \end{verbatim}
 \end{rcode}\end{kframe}
 \end{knitrout}
@@ -1274,14 +1266,14 @@ names & & étiquettes des éléments d’un objet\LL
 
 
 
-\begin{frame}[fragile]{La différence entre \textit{data frame} et \textit{matrix}?}
+\begin{frame}[fragile]{The difference between a \textit{data frame} and a \textit{matrix}?}
 
 \begin{itemize}
   \setlength\itemsep{2em}
   \normalsize
-\item \code{matrix}: calculs matriciels
+\item \code{matrix}: matrix calculations
 %\pause \item Utiliser lorsque différents sortes de données ont étés collecter sur les m\^{e}mes sujets (essaie clinique) 
-\item \code{data.frame}: toutes autres analyses de données hétérogènes
+\item \code{data.frame}: all other analyses of different data types
 \end{itemize}
 
 \end{frame}
@@ -1289,18 +1281,18 @@ names & & étiquettes des éléments d’un objet\LL
 
 
 
-\subsection{Commandes R}
+\subsection{R Commands}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Commandes R}}
+  \Huge{\textcolor{red}{R Commands}}
  \end{center}
 \end{frame}
 
 
-\begin{frame}[fragile]{Expression et affectation} 
+\begin{frame}[fragile]{Expression and Assignment} 
 \begin{enumerate}
-\item Une \textbf{expression} est immédiatement évaluée et le résultat est affiché à l’écran:
+\item An \textbf{expression} is immediately evaluated and the result is posted in the R console:
 \pause
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
@@ -1330,13 +1322,13 @@ names & & étiquettes des éléments d’un objet\LL
 \end{frame}
 
 
-\begin{frame}[fragile]{Expression et affectation} 
+\begin{frame}[fragile]{Expression and Assignment} 
 \begin{enumerate}
 \conti
-\item Lors d’une \textbf{affectation}, une expression est évaluée, mais le résultat est stocké dans un objet (variable) et rien n’est affiché à l’écran
+\item When performing an \textbf{assignment}, an expression is evaluated, but the result is stored in an object and nothing is printed to the console
 \begin{itemize}
-\item Le symbole d’affectation est <-  
-\item les deux caractères < et - placés obligatoirement l'un à la suite de l'autre:
+\item The assignment operator is <-  
+\item the two characters < and - must be placed one after another (no spaces):
 \end{itemize}
 \pause
 \begin{knitrout}
@@ -1362,11 +1354,10 @@ names & & étiquettes des éléments d’un objet\LL
 
 \end{frame}
 
-\begin{comment}
-\begin{frame}[fragile]{Expression et affectation} 
+\begin{frame}[fragile]{Expression and Assignment} 
 \begin{enumerate}
 \conti
-\item Pour affecter le résultat d’un calcul dans un objet et simultanément afficher ce résultat, il suffit de placer l'affectation entre parenthèses pour ainsi créer une nouvelle expression
+\item To create an assignment and simultaneously print its result, you can place the expression in parentheses:
 \pause
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
@@ -1378,39 +1369,36 @@ names & & étiquettes des éléments d’un objet\LL
 \end{verbatim}
 \end{rcode}\end{kframe}
 \end{knitrout}
-\pause \item Le signe = est valide également, mais il n'est pas recommendé de l'utiliser dans ce contexte
+\pause \item The = is valid, but is not recommended
 \begin{itemize}
-\item cette pratique est susceptible d'engendrer de la confusion avec les constructions \code{nom = valeur} dans les appels de fonction
+\item it can cause confusion between the \code{name = value} in function calls
 \end{itemize}
 
 \end{enumerate}
 \end{frame}
-\end{comment}
 
 
-\begin{comment}
-\begin{frame}[fragile]{Conventions pour les noms d'objets}
+\begin{frame}[fragile]{Naming conventions for objects}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Les caractères permis pour les noms d'objets: 
+\item Characters are allowed for naming objects: 
 \begin{enumerate}
-\item les lettres minuscules a–z 
-\item les lettres majuscules A–Z
-\item les chiffres 0–9, 
-\item le point .
-\item le caractère de soulignement \_
+\item lower case letters a–z 
+\item upper case letters A–Z
+\item numbers 0–9, 
+\item the period .
+\item underscore \_
 \end{enumerate}
-\pause \item Il est permis d'utiliser des lettres accentuées, mais cette pratique est fortement découragée puisqu'elle risque de nuire à la portabilité du code
 \end{itemize}
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Conventions pour les noms d'objets}
+\begin{frame}[fragile]{Naming conventions}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Le R est sensible à la casse, ce qui signifie que \code{foo, Foo et FOO} sont trois objets distincts
-\pause \item Certains noms sont utilisés par le système R. Mieux éviter d’utiliser 
+\item R is case-sensitive, which means \code{foo, Foo} and \code{FOO} are three distinct objects
+\pause \item Certain names are reserved for R functions, so its best to avoid them
 \begin{center}
 \code{c, q, t, C, D, I, diff, length, mean, pi, range, var, sd}\\
 \code{break, else, for, function, if, in, next, repeat, return, while}\\
@@ -1420,34 +1408,33 @@ names & & étiquettes des éléments d’un objet\LL
 \end{itemize}
 
 \end{frame}
-\end{comment}
 
 
 
-\begin{frame}[fragile]{Indexation d'un \textit{vector}}
+\begin{frame}[fragile]{Indexing a \textit{vector}}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item L'indexation sert principalement à deux choses
+\item Indexing has two purposes
 \pause \begin{enumerate}
 \normalsize
-\item extraire des éléments 
-\item remplacer des éléments
+\item extract elements 
+\item replace elements
 \end{enumerate}
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-25}\begin{alltt}
-\hlcom{# création d'un vecteur}
+\hlcom{# create a vectir}
 \hlstd{x} \hlkwb{<-} \hlkwd{c}\hlstd{(}\hlkwc{a} \hlstd{=} \hlopt{-}\hlnum{1}\hlstd{,} \hlkwc{b} \hlstd{=} \hlnum{2}\hlstd{,} \hlkwc{c} \hlstd{=} \hlnum{8}\hlstd{,} \hlkwc{d} \hlstd{=} \hlnum{10}\hlstd{)}
 
-\hlcom{# extraction par position}
+\hlcom{# extract by position}
 \hlstd{x[}\hlnum{1}\hlstd{]}
 
-\hlcom{# extraction par étiquette}
+\hlcom{# extract by name}
 \hlstd{x[}\hlstr{"c"}\hlstd{]}
 
-\hlcom{# remplacer le deuxième élément par 5}
+\hlcom{# remplace the second element by 5}
 \hlstd{x[}\hlnum{2}\hlstd{]} \hlkwb{<-} \hlnum{5}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1456,13 +1443,13 @@ names & & étiquettes des éléments d’un objet\LL
 
 
 
-\begin{frame}[fragile]{Indexation d'un \textit{data frame} et \textit{matrix}}
+\begin{frame}[fragile]{Indexing a \textit{data frame} and a \textit{matrix}}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item L'indexation des observations se fait à partir des rangées et colonnes du \textit{data frame} et \textit{matrix}:
+\item Indexing observations by rows and columns for the \textit{data.frame} and \textit{matrix}:
 \begin{center}
-\code{d[rangée,colonne]}
+\code{df[row, column]}
 \end{center}
 
 \end{itemize}
@@ -1470,16 +1457,16 @@ names & & étiquettes des éléments d’un objet\LL
 \begin{knitrout}\small
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-26}\begin{alltt}
-\hlcom{# création d'un data frame}
+\hlcom{# create a data frame}
 \hlstd{d} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(}\hlkwc{Noms} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"Pierre"}\hlstd{,} \hlstr{"Jean"}\hlstd{,} \hlstr{"Jacques"}\hlstd{),}
 \hlkwc{Age} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{42}\hlstd{,} \hlnum{34}\hlstd{,} \hlnum{19}\hlstd{),}
 \hlkwc{Fumeur} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{TRUE}\hlstd{,} \hlnum{TRUE}\hlstd{,} \hlnum{FALSE}\hlstd{))}
 
-\hlstd{d[}\hlnum{1}\hlstd{, ]} \hlcom{# première rangée}
+\hlstd{d[}\hlnum{1}\hlstd{, ]} \hlcom{# first row}
 
-\hlstd{d[ ,}\hlnum{1}\hlstd{]} \hlcom{# première colonne }
+\hlstd{d[ ,}\hlnum{1}\hlstd{]} \hlcom{# first column}
 
-\hlstd{d[}\hlnum{3}\hlstd{,}\hlnum{2}\hlstd{]} \hlcom{# troisième rangée, deuxième colonne}
+\hlstd{d[}\hlnum{3}\hlstd{,}\hlnum{2}\hlstd{]} \hlcom{# third row, second column}
 \end{alltt}
 \end{rcode}\end{kframe}
 \end{knitrout}
@@ -1488,19 +1475,19 @@ names & & étiquettes des éléments d’un objet\LL
 
 
 
-\begin{frame}[fragile]{Indexation d'un \textit{list}}
+\begin{frame}[fragile]{Indexing a \textit{list}}
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-27}\begin{alltt}
-\hlcom{# création d'un list}
-\hlstd{x} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{joueur} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"V"}\hlstd{,} \hlstr{"C"}\hlstd{),}
+\hlcom{# create a list}
+\hlstd{x} \hlkwb{<-} \hlkwd{list}\hlstd{(}\hlkwc{player} \hlstd{=} \hlkwd{c}\hlstd{(}\hlstr{"V"}\hlstd{,} \hlstr{"C"}\hlstd{),}
                   \hlkwc{score} \hlstd{=} \hlkwd{c}\hlstd{(}\hlnum{10}\hlstd{,} \hlnum{12}\hlstd{))}
 
-\hlcom{# premier élément de la list}
+\hlcom{# first element of the list}
 \hlstd{x[[}\hlnum{1}\hlstd{]]}
 
-\hlcom{# 1er élément du 2e élément de la list}
+\hlcom{# 1st element of the 2nd element of the list}
 \hlstd{x[[}\hlnum{2}\hlstd{]][}\hlnum{1}\hlstd{]}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1508,17 +1495,17 @@ names & & étiquettes des éléments d’un objet\LL
 \end{frame}
 
 
-\begin{frame}[fragile]{Importer et enregistrer des données et du code}
+\begin{frame}[fragile]{Import data and code}
 
 
 
-\ctable[caption={Les fonctions de bases pour importer et enregistrer des données et du code R},label=tab:table1,pos=h!,doinside=\small]{lccc}{\tnote{chaque valeur est séparée par un espace}\tnote[b]{chaque valeur est séparée par une virgule}\tnote[c]{objets dans ton espace de travail (Environment)}
+\ctable[caption={Functions for importing data and code},label=tab:table1,pos=h!,doinside=\small]{lccc}{\tnote{value is separated by a space}\tnote[b]{each value is separated by a comma}\tnote[c]{objects in your working environment}
 }{
     																\FL
-        	  & fichiers	           &	 objets\tmark[c]  &    script R\ML
-importer  & \code{read.table()\tmark} &       \code{load()} &   \code{source()}    \NN
+        	  & files	           &	 objects\tmark[c]  &    R script\ML
+import  & \code{read.table()\tmark} &       \code{load()} &   \code{source()}    \NN
           &  \code{read.csv()\tmark[b]}  &                 &                 \ML
-enregistrer  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
+save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
              & \code{write.csv()}   &    \LL
 } 
 
@@ -1526,25 +1513,25 @@ enregistrer  & \code{write.table()} &  \code{save()} &   File -> Save As..      
 \end{frame}
 
 
-\begin{frame}[fragile]{Importer des données}
+\begin{frame}[fragile]{Import data}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Il est nécessaire de préciser le chemin d'accès au fichier s'il n'est pas dans le répertoire de travail
+\item You must specify where the data is located on your hard drive
 \begin{itemize}
 \normalsize
-\pause \item \code{getwd()}: conna\^{i}tre le répertoire de travail
-\pause \item \code{setwd()}: modifier le répertoire de travail
+\pause \item \code{getwd()}: to know the working directory
+\pause \item \code{setwd()}: to modify the working directory
 \end{itemize}
 \end{itemize}
 \pause 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-28}\begin{alltt}
-\hlcom{# modifier le répertoire de travail}
-\hlkwd{setwd}\hlstd{(}\hlstr{"~/git_repositories/atelier-R-GERAD/data"}\hlstd{)}
+\hlcom{# modify working directory}
+\hlkwd{setwd}\hlstd{(}\hlstr{"~/git_repositories/npu/data"}\hlstd{)}
 
-\hlcom{# importer les fichiers}
-\hlcom{# affectation aux objets 'lung' et 'admit'}
+\hlcom{# import the files}
+\hlcom{# assign it to the 'lung' and 'admit' objects}
 \hlstd{lung} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{"lung.csv"}\hlstd{)}
 
 \hlstd{admit} \hlkwb{<-} \hlkwd{read.table}\hlstd{(}\hlstr{"admit.txt"}\hlstd{)}
@@ -1556,25 +1543,25 @@ enregistrer  & \code{write.table()} &  \code{save()} &   File -> Save As..      
 
 
 
-\begin{frame}[fragile]{Importer du code R à partir d'un script}
+\begin{frame}[fragile]{Import code from an R Script}
 
 \begin{knitrout}\small
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-29}\begin{alltt}
-\hlcom{# modifier le répertoire de travail}
-\hlkwd{setwd}\hlstd{(}\hlstr{"~/git_repositories/atelier-R-GERAD/script"}\hlstd{)}
+\hlcom{# modify the working directory}
+\hlkwd{setwd}\hlstd{(}\hlstr{"~/git_repositories/npu/script"}\hlstd{)}
 
-\hlcom{# exécute les commandes R du script 'mtcars.R'}
-\hlcom{# et montre le output}
+\hlcom{# execute the commands of the RScript 'mtcars.R'}
+\hlcom{# and show the output}
 \hlkwd{source}\hlstd{(}\hlstr{"mtcars.R"}\hlstd{,} \hlkwc{echo} \hlstd{=} \hlnum{TRUE}\hlstd{)}
 
-\hlcom{# sauvegarde les objets du environment}
+\hlcom{# save the results in an RData object}
 \hlkwd{save}\hlstd{(df, fit,} \hlkwc{file} \hlstd{=} \hlstr{"mtcars.RData"}\hlstd{)}
 
-\hlcom{# supprime les objets de ton environment}
+\hlcom{# delete the R objects}
 \hlkwd{rm}\hlstd{(df, fit)}
 
-\hlcom{# importer les objets R de 'mtcars.RData'}
+\hlcom{# import the R objects saved in 'mtcars.RData'}
 \hlkwd{load}\hlstd{(}\hlstr{"mtcars.RData"}\hlstd{)}
 \end{alltt}
 \end{rcode}\end{kframe}
@@ -1584,23 +1571,21 @@ enregistrer  & \code{write.table()} &  \code{save()} &   File -> Save As..      
 
 
 
-\begin{frame}[fragile]{Installer des \textit{packages} additionnels dans R}
+\begin{frame}[fragile]{Instal \textit{packages} in R}
 
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Un \textit{\textbf{package}} R est un ensemble cohérent de fonctions, de jeux de données et de documentation permettant de compléter les fonctionnalités du
-système ou d'en ajouter de nouvelles
-\item La liste complète de ces packages est disponible sur le site \href{http://www.r-pkg.org/}{METACRAN}
+\item A R \textit{\textbf{package}} is a collection of functions, data and documentation that allows a user to perform other tasks.
+\item A list of these packages is available at \url{http://www.r-pkg.org/}
 \end{itemize}
 \pause
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{1, 1, 1}\color{fgcolor}\begin{kframe}
 \begin{rcode}\label{unnamed-chunk-30}\begin{alltt}
-\hlcom{# installer des packages pour créer des rapports}
-\hlcom{# reproductibles}
+\hlcom{# install packages for reproducible code}
 \hlkwd{install.packages}\hlstd{(}\hlkwd{c}\hlstd{(}\hlstr{"knitr"}\hlstd{,}\hlstr{"rmarkdown"}\hlstd{))}
 
-\hlcom{# pour avoir accès aux fonctions dans ces packages}
+\hlcom{# to get access to those functions}
 \hlkwd{library}\hlstd{(knitr)}
 \hlkwd{library}\hlstd{(rmarkdown)}
 \end{alltt}
@@ -1609,18 +1594,18 @@ système ou d'en ajouter de nouvelles
 \end{frame}
 
 
-\subsection{Sommaire}
+\subsection{Summary}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Sommaire}}
+  \Huge{\textcolor{red}{Summary}}
  \end{center}
 \end{frame}
 
 
 
 
-\begin{frame}{Sommaire des commandes de bases}
+\begin{frame}{Summary of basic R commands}
  %\hspace*{-1.9cm}\parbox[t]{\textwidth}{
 \begin{tikzpicture}
 \node (expr) [startstop] {\code{sessionInfo()}
@@ -1642,13 +1627,13 @@ système ou d'en ajouter de nouvelles
 \code{source()}};
 \draw[decoration={brace,raise=5pt, amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]expr.south west) -- ([yshift=1pt]expr.north west) node [black,midway,xshift=-2cm] 
-{\footnotesize Espace de travail};
+{\footnotesize Working Environment};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]fat.south west) -- ([yshift=1pt]fat.north west) node [black,midway,xshift=-2.6cm] 
-{\footnotesize Objets R les plus utilisés};
+{\footnotesize Frequently used R objects};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]script.south west) -- ([yshift=1pt]script.north west) node [black,midway,xshift=-3cm] 
-{\footnotesize Accéder les données et scripts R};
+{\footnotesize Access to external data and scripts};
 \end{tikzpicture}
 %}
 \end{frame}
@@ -1656,13 +1641,13 @@ système ou d'en ajouter de nouvelles
 
 
 
-\section{3. Graphiques}
+\section{3. R Graphics}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
  \begin{center}
-  \Huge{\textcolor{white}{3. Graphiques}}
+  \Huge{\textcolor{white}{3. R Graphics}}
  \end{center}
  }
 \end{frame}
@@ -1671,7 +1656,7 @@ système ou d'en ajouter de nouvelles
 \setbeamercolor{normal text}{fg=black,bg=background}
 \begin{frame}[plain]
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
-\begin{block}{Objectifs du chapitre}
+\begin{block}{Objectives of this section}
 \begin{enumerate}
 \item Comprendre la syntaxe de la fonction \code{plot}
 \item Créer des \code{boxplot, histogram} et \code{density} plot
@@ -1885,7 +1870,7 @@ système ou d'en ajouter de nouvelles
 
 
 
-\section{4. Statistiques}
+\section{4. Statistics}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]
@@ -2188,7 +2173,7 @@ système ou d'en ajouter de nouvelles
 
 
 
-\section{5. Rapports reproductibles}
+\section{5. Reproducible Reports}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]

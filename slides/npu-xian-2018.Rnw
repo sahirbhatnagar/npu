@@ -153,7 +153,7 @@ knitr::read_chunk("slides-packages.R")
 %\subtitle{An introduction to programming in R}
 
 \author[]{Sahir Bhatnagar and Yi Yang%
-\thanks{\href{https://github.com/sahirbhatnagar/atelier-R-GERAD}{https://github.com/sahirbhatnagar/atelier-R-GERAD}%
+\thanks{\href{https://github.com/sahirbhatnagar/npu}{https://github.com/sahirbhatnagar/npu}%
 }}
 
 \date{July 8 -- 11, 2018}
@@ -663,18 +663,16 @@ summary(fit)
 \endgroup
 
 
-\begin{comment}
 \begin{frame}[fragile, plain]
 <<rcode=TRUE, eval=FALSE>>=
-# La fonction ’seq’ sert à générer des suites 
-# plus générales.
+# The ’seq’ function will generate more general sequences 
 seq(from = -5, to = 10, by = 3)
 seq(from = -5, length = 10)
 
-# La fonction ’rep’ sert à répéter des valeurs.
-rep(1, 5) # répéter 1 cinq fois
-rep(1:5, 5) # répéter le vecteur 1,...,5 cinq fois
-rep(1:5, each = 5) # répéter chaque élément cinq fois
+#’rep’ repeats values
+rep(1, 5) # repeat 1, 5 times
+rep(1:5, 5) # repeat the vector 1,...,5,  five times
+rep(1:5, each = 5) # repeat each element five times
 @
 \end{frame}
 
@@ -682,19 +680,16 @@ rep(1:5, each = 5) # répéter chaque élément cinq fois
 
 \begin{frame}[fragile, plain]
 <<rcode=TRUE, eval=FALSE>>=
-# Arithmétique vectorielle
-v <- 1:12  # initialisation d’un vecteur
-v + 2 # additionner 2 à chaque élément de v
-v * -12:-1 # produit élément par élément
-v + 1:3 # le vecteur le plus court est recyclé
+# vector arithmetic
+v <- 1:12  # initialize a vector
+v + 2 # add 2 to each element of the vector
+v * -12:-1 # element-wise product
+v + 1:3 # the shortest vector is recycled
 
-# Vecteur de nombres uniformes sur 
-# l’intervalle [1, 10]. Le point-virgule
-# signifie une nouvelle ligne
+# Generate random uniform(1,10) numbers 
 v <- runif(12, min = 1, max = 10); v
 
-# Pour afficher le résultat d’une affectation,
-# placer la commande entre parenthèses.
+# You can place the call in parentheses to see the result
 ( v <- runif(12, min = 1, max = 10) )
 @
 \end{frame}
@@ -757,26 +752,26 @@ q()
 \setbeamercolor{normal text}{fg=gray,bg=white}
 
 
-\subsection{Les fonctions}
+\subsection{Functions}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Les fonctions}}
+  \Huge{\textcolor{red}{Functions}}
  \end{center}
 \end{frame}
 
 
 
-\begin{frame}{Définition et appel de fonctions}
+\begin{frame}{Definition of a Function}
 \begin{itemize}
  \setlength\itemsep{2em}
-\item Plutôt que d'écrire plusieurs lignes de codes pour des choses assez simples et répétitives on fait appel à des \textbf{fonctions}
-\pause \item Une fonction est caractérisée par deux composantes:
+\item Instead of writing many repetitive lines of code, we call \textbf{functions} instead
+\pause \item A function is characterised by two components
 \pause 
 \begin{enumerate}
 \normalsize
-\item son \textbf{nom}: c'est ce nom qui nous permettra d'appeler la fonction
-\pause \item une \textbf{liste d'arguments}: ce sont les informations dont la fonction a besoin pour travailler et renvoyer son résultat
+\item It's \textbf{name}: this name allows the user to call the function
+\pause \item a \textbf{list of arguments}: this is the information the function needs to return a proper result
 \end{enumerate}
 \end{itemize}
 \end{frame}
@@ -785,21 +780,21 @@ q()
 
 
 
-\begin{frame}[fragile]{La syntaxe pour appeler une fonction}
+\begin{frame}[fragile]{Function syntax}
 \begin{itemize}
  \setlength\itemsep{2em}
-\item Il faut écrire son nom suivi de parenthèses
-\pause \item Entre ces parenthèses, nous indiquerons les arguments dont la fonction a besoin:
+\item You have to write the name of the function followed by two parentheses
+\pause \item The required arguments between these two parentheses are what the function requires to execute it:
 \begin{center}
-\code{nom\_de\_la\_fonction(arguments)}
+\code{name\_of\_the\_function(arguments)}
 \end{center}
 \end{itemize}
 \pause 
 <<rcode=TRUE, tidy=FALSE, eval=FALSE>>=
-# chercher la rubrique d'aide pour racine carrée
+# look at the help page for square root function
 ?sqrt
 
-# on voit que la fonction prend un argument
+# we see that the sqrt function takes one argument
 sqrt(49)
 @
 
@@ -807,23 +802,23 @@ sqrt(49)
 
 
 
-\begin{frame}[fragile]{Arguments facultatifs}
+\begin{frame}[fragile]{Optional arguments}
 \begin{itemize}
  \setlength\itemsep{0.5em}
-\item Certaines fonctions nécessitent plusieurs arguments et certains de ces arguments sont optionnels (aussi possible d'avoir aucun argument: \code{getwd()}) 
-\pause \item Les arguments optionnels possèdent une valeur par défaut
-\pause \item Si on ne spécifie pas de valeur, ces arguments prendront la valeur définie par défaut, sinon ils prendront la valeur spécifiée
+\item Certain functions have optional arguments while others have no arguments at all: \code{getwd()}) 
+\pause \item The optional arguments have a default value 
+\pause \item If we do not specify the optional argument, then the function will use the default, else it will use the argument value specified
 \end{itemize}
 \pause 
 
 <<rcode=TRUE, tidy=FALSE, eval=FALSE, size='footnotesize'>>=
-# chercher la rubrique d'aide pour logarithme
+# look at the help for the logarithm function
 ?log
 
-# on ne précise pas de valeur pour le second argument
+# we don't need to specify a value for the 2nd argument 
 log(2)
 
-# On peut spécifier le second argument en l'appelant par son nom
+# we can specify the second argument if we want
 log(2, base = exp(1))
 @
 
@@ -832,11 +827,11 @@ log(2, base = exp(1))
 
 
 
-\subsection{Les objets R}
+\subsection{R Objects}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Les objets R}}
+  \Huge{\textcolor{red}{R Objects}}
  \end{center}
 \end{frame}
 
@@ -857,7 +852,7 @@ log(2, base = exp(1))
 
 
 
-\begin{frame}{Les objets R}
+\begin{frame}{R Objects}
 
 %\begin{itemize}
 %  \setlength\itemsep{2em}
@@ -870,10 +865,10 @@ log(2, base = exp(1))
 %\pause \item Cela donne lieu à 5 types de données les plus souvent utilisées %dans l'analyse des données:
 %\end{itemize}
 %\pause 
-\ctable[caption={Les principaux objets en R et le nom de leurs fonctions},label=tab:table1,pos=h!,doinside=\small]{ccccc}{\tnote{tous les éléments doivent être du même type}\tnote[b]{les éléments peuvent être de différents types}
+\ctable[caption={The principal R objects and their name},label=tab:table1,pos=h!,doinside=\small]{ccccc}{\tnote{all the elements have to be of the same type}\tnote[b]{the elements can be of different types}
 }{
     																\FL
-dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
+dimension	&  & same type\tmark	    &	& different type\tmark[b] \ML
 1d & & Atomic vector & & List \NN
    & &    \code{c()} & & \code{list()} \ML
 2d & & Matrix & & Data frame \NN
@@ -887,8 +882,8 @@ dimension	&  & homogène\tmark	    &	& hétérogène\tmark[b] \ML
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item En R, à toutes fins pratiques, tout est un vecteur
-\pause \item La fonction de base pour créer un vecteur est \code{c()} (concaténation)
+\item In R, everything is a vector
+\pause \item The function to create a vector is \code{c()} (concatenation)
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = FALSE>>=
@@ -904,9 +899,9 @@ c(1, 2, 5)
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Les quatre types d'\textit{atomic vectors} les plus utilisés: 
+\item Frequently used \textit{atomic vectors}: 
 \begin{enumerate}
-\item \textit{double} (également appelé \textit{numeric})
+\item \textit{double} (also called \textit{numeric})
 \item \textit{integer}
 \item \textit{character}
 \item \textit{logical}
@@ -916,7 +911,7 @@ c(1, 2, 5)
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
 c(1, 2.5, 4.5) # numeric
 c(1L, 6L, 10L) # integer
-c("ceci sont", "des characters") #character
+c("these are", "characters") #character
 c(TRUE, FALSE, T, F) # logical
 @
 
@@ -927,13 +922,12 @@ c(TRUE, FALSE, T, F) # logical
 
 
 
-\begin{comment}
 \begin{frame}[fragile]{Test}
 
 \begin{itemize}
   %\setlength\itemsep{1em}
-\item \code{typeof()}: pour savoir quel type de vector
-\item \code{is.character(), is.double(), is.integer(), is.logical(), is.atomic()}: pour vérifier si c'est un cas spécifique 
+\item \code{typeof()}: to find out the type of vector
+\item \code{is.character(), is.double(), is.integer(), is.logical(), is.atomic()}: for case specific types 
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = FALSE, size = 'footnotesize'>>=
@@ -957,16 +951,15 @@ is.atomic(dbl_var)
 @
 
 \end{frame}
-\end{comment}
 
 
 \begin{frame}[fragile]{\textit{Coercion}}
 
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Tous les éléments d'un \textit{atomic vector} doivent être du même type
-\pause \item Lorsque vous essayez de combiner différents types, ils seront convertis au type le plus flexible
-\pause \item Types du moins au plus flexible sont:
+\item All the elements of an \textit{atomic vector} must be of the same type
+\pause \item When you try to combine several types, it will convert everything to the most flexible type
+\pause \item From least flexible to most flexible:
 \begin{enumerate}
 \item \textit{logical} 
 \item \textit{integer} 
@@ -975,7 +968,7 @@ is.atomic(dbl_var)
 \end{enumerate}
 \end{itemize}
 <<rcode=TRUE, eval = TRUE, tidy = FALSE>>=
-# combiner un character et integer donne un character
+# combine a character and an interger will produce what?
 str(c("a", 1))
 @
 \end{frame}
@@ -984,14 +977,14 @@ str(c("a", 1))
 
 \begin{frame}[fragile]{\textit{Coercion}}
 \begin{itemize}
-\item La plupart des opérations mathématiques vont convertir un \textit{atomic vector} à un \textit{double} ou \textit{integer}
+\item Most mathematical operations will convert an \textit{atomic vector} into a \textit{double} or \textit{integer}
 \end{itemize}
 <<rcode=TRUE, eval = TRUE, tidy = FALSE, size = 'footnotesize'>>=
 x <- c(FALSE, FALSE, TRUE)
 as.numeric(x)
-# Nombre total de TRUE
+# Number of TRUE
 sum(x)
-# La proportion de TRUE
+# Proportion of TRUE
 mean(x)
 @
 \end{frame}
@@ -1001,8 +994,8 @@ mean(x)
 
 \begin{itemize}
   %\setlength\itemsep{2em}
-\item Les \textit{lists} sont différent des \textit{atomic vectors} parce que leurs éléments peuvent \^{e}tre de tout type
-\item La fonction pour créer un \textit{list} est \code{list()}
+\item \textit{lists} are different from \textit{atomic vectors} because the elements will be of the same type
+\item The function to create a \textit{list} is a \code{list()}
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = FALSE, size = 'footnotesize'>>=
@@ -1042,13 +1035,13 @@ names & & étiquettes des éléments d’un objet\LL
 
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Les matrices ne sont rien d'autre que des vecteurs en 2 dimensions
-\pause \item Surtout utilisées pour faire les calculs mathématiques (pensez à vos cours d'algèbre linéaire)
-\pause \item La fonction pour créer un \textit{matrix} est \code{matrix()}
+\item Matrices are nothing but vectors in 2 dimensions
+\pause \item Used for mathematical computations (think of linear algebra courses)
+\pause \item The function to create a \textit{matrix} is \code{matrix()}
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = FALSE, size = 'normalsize'>>=
-# rempli par colonne par défaut
+# filled by column by defaults
 matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
 @
 
@@ -1058,7 +1051,7 @@ matrix(c(1,2,3,4,5,6), nrow = 2, ncol = 3)
 \begin{frame}[fragile]{\textit{Matrix}}
 
 <<rcode=TRUE, eval = TRUE, tidy = FALSE, size = 'normalsize'>>=
-# automatiquement converti en données homogènes
+# automatically converted to same data type
 matrix(c(1,2,3,"a","b","c"), nrow = 2, ncol = 3)
 @
 
@@ -1072,15 +1065,15 @@ matrix(c(1,2,3,"a","b","c"), nrow = 2, ncol = 3)
 
 \begin{itemize}
   \setlength\itemsep{0.5em}
-\item Le \textit{data frame} est un tableau de données hétérogènes
+\item The \textit{data frame} is a collection of vectors of different types
 %\pause \item Utiliser lorsque différents sortes de données ont étés collecter sur les m\^{e}mes sujets (essaie clinique) 
-\pause \item La fonction pour créer un \textit{data frame} est \code{data.frame()}
+\pause \item The function to create a \textit{data frame} is \code{data.frame()}
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = FALSE, size = 'normalsize'>>=
-# une colonne 'id' pour identifier les sujets
-# une colonne 'age' pour leur age
-data.frame(id = c("didier","patrice","laurent"),
+# an 'id'  column to identify the individuals
+# an 'age' column for their age
+data.frame(id = c("yi","yang","zhengzin"),
            age = c(37,34,32))
 @
 
@@ -1089,14 +1082,14 @@ data.frame(id = c("didier","patrice","laurent"),
 
 
 
-\begin{frame}[fragile]{La différence entre \textit{data frame} et \textit{matrix}?}
+\begin{frame}[fragile]{The difference between a \textit{data frame} and a \textit{matrix}?}
 
 \begin{itemize}
   \setlength\itemsep{2em}
   \normalsize
-\item \code{matrix}: calculs matriciels
+\item \code{matrix}: matrix calculations
 %\pause \item Utiliser lorsque différents sortes de données ont étés collecter sur les m\^{e}mes sujets (essaie clinique) 
-\item \code{data.frame}: toutes autres analyses de données hétérogènes
+\item \code{data.frame}: all other analyses of different data types
 \end{itemize}
 
 \end{frame}
@@ -1104,21 +1097,21 @@ data.frame(id = c("didier","patrice","laurent"),
 
 
 
-\subsection{Commandes R}
+\subsection{R Commands}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Commandes R}}
+  \Huge{\textcolor{red}{R Commands}}
  \end{center}
 \end{frame}
 
 
-\begin{frame}[fragile]{Expression et affectation} 
+\begin{frame}[fragile]{Expression and Assignment} 
 \begin{enumerate}
-\item Une \textbf{expression} est immédiatement évaluée et le résultat est affiché à l’écran:
+\item An \textbf{expression} is immediately evaluated and the result is posted in the R console:
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = TRUE>>=
-2+3;pi;cos(pi/4)
+2 + 3 ; pi ; cos(pi / 4)
 @
 \seti
 \end{enumerate}
@@ -1126,13 +1119,13 @@ data.frame(id = c("didier","patrice","laurent"),
 \end{frame}
 
 
-\begin{frame}[fragile]{Expression et affectation} 
+\begin{frame}[fragile]{Expression and Assignment} 
 \begin{enumerate}
 \conti
-\item Lors d’une \textbf{affectation}, une expression est évaluée, mais le résultat est stocké dans un objet (variable) et rien n’est affiché à l’écran
+\item When performing an \textbf{assignment}, an expression is evaluated, but the result is stored in an object and nothing is printed to the console
 \begin{itemize}
-\item Le symbole d’affectation est <-  
-\item les deux caractères < et - placés obligatoirement l'un à la suite de l'autre:
+\item The assignment operator is <-  
+\item the two characters < and - must be placed one after another (no spaces):
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = TRUE>>=
@@ -1146,48 +1139,44 @@ b
 
 \end{frame}
 
-\begin{comment}
-\begin{frame}[fragile]{Expression et affectation} 
+\begin{frame}[fragile]{Expression and Assignment} 
 \begin{enumerate}
 \conti
-\item Pour affecter le résultat d’un calcul dans un objet et simultanément afficher ce résultat, il suffit de placer l'affectation entre parenthèses pour ainsi créer une nouvelle expression
+\item To create an assignment and simultaneously print its result, you can place the expression in parentheses:
 \pause
 <<rcode=TRUE, eval = TRUE, tidy = TRUE>>=
 (a <- 2 + 3)
 @
-\pause \item Le signe = est valide également, mais il n'est pas recommendé de l'utiliser dans ce contexte
+\pause \item The = is valid, but is not recommended
 \begin{itemize}
-\item cette pratique est susceptible d'engendrer de la confusion avec les constructions \code{nom = valeur} dans les appels de fonction
+\item it can cause confusion between the \code{name = value} in function calls
 \end{itemize}
 
 \end{enumerate}
 \end{frame}
-\end{comment}
 
 
-\begin{comment}
-\begin{frame}[fragile]{Conventions pour les noms d'objets}
+\begin{frame}[fragile]{Naming conventions for objects}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Les caractères permis pour les noms d'objets: 
+\item Characters are allowed for naming objects: 
 \begin{enumerate}
-\item les lettres minuscules a–z 
-\item les lettres majuscules A–Z
-\item les chiffres 0–9, 
-\item le point .
-\item le caractère de soulignement \_
+\item lower case letters a–z 
+\item upper case letters A–Z
+\item numbers 0–9, 
+\item the period .
+\item underscore \_
 \end{enumerate}
-\pause \item Il est permis d'utiliser des lettres accentuées, mais cette pratique est fortement découragée puisqu'elle risque de nuire à la portabilité du code
 \end{itemize}
 
 \end{frame}
 
 
-\begin{frame}[fragile]{Conventions pour les noms d'objets}
+\begin{frame}[fragile]{Naming conventions}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Le R est sensible à la casse, ce qui signifie que \code{foo, Foo et FOO} sont trois objets distincts
-\pause \item Certains noms sont utilisés par le système R. Mieux éviter d’utiliser 
+\item R is case-sensitive, which means \code{foo, Foo} and \code{FOO} are three distinct objects
+\pause \item Certain names are reserved for R functions, so its best to avoid them
 \begin{center}
 \code{c, q, t, C, D, I, diff, length, mean, pi, range, var, sd}\\
 \code{break, else, for, function, if, in, next, repeat, return, while}\\
@@ -1197,93 +1186,92 @@ b
 \end{itemize}
 
 \end{frame}
-\end{comment}
 
 
 
-\begin{frame}[fragile]{Indexation d'un \textit{vector}}
+\begin{frame}[fragile]{Indexing a \textit{vector}}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item L'indexation sert principalement à deux choses
+\item Indexing has two purposes
 \pause \begin{enumerate}
 \normalsize
-\item extraire des éléments 
-\item remplacer des éléments
+\item extract elements 
+\item replace elements
 \end{enumerate}
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# création d'un vecteur
+# create a vectir
 x <- c(a = -1, b = 2, c = 8, d = 10) 
 
-# extraction par position
+# extract by position
 x[1]
 
-# extraction par étiquette
+# extract by name
 x["c"]
 
-# remplacer le deuxième élément par 5
+# remplace the second element by 5
 x[2] <- 5
 @
 \end{frame}
 
 
 
-\begin{frame}[fragile]{Indexation d'un \textit{data frame} et \textit{matrix}}
+\begin{frame}[fragile]{Indexing a \textit{data frame} and a \textit{matrix}}
 
 \begin{itemize}
   \setlength\itemsep{2em}
-\item L'indexation des observations se fait à partir des rangées et colonnes du \textit{data frame} et \textit{matrix}:
+\item Indexing observations by rows and columns for the \textit{data.frame} and \textit{matrix}:
 \begin{center}
-\code{d[rangée,colonne]}
+\code{df[row, column]}
 \end{center}
 
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE, size='small'>>=
-# création d'un data frame
+# create a data frame
 d <- data.frame(Noms = c("Pierre", "Jean", "Jacques"),
 Age = c(42, 34, 19),
 Fumeur = c(TRUE, TRUE, FALSE))
 
-d[1, ] # première rangée
+d[1, ] # first row
 
-d[ ,1] # première colonne 
+d[ ,1] # first column
 
-d[3,2] # troisième rangée, deuxième colonne
+d[3,2] # third row, second column
 @
 \end{frame}
 
 
 
 
-\begin{frame}[fragile]{Indexation d'un \textit{list}}
+\begin{frame}[fragile]{Indexing a \textit{list}}
 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# création d'un list
-x <- list(joueur = c("V", "C"),
+# create a list
+x <- list(player = c("V", "C"),
 		  score = c(10, 12))
 		  
-# premier élément de la list
+# first element of the list
 x[[1]]
 
-# 1er élément du 2e élément de la list
+# 1st element of the 2nd element of the list
 x[[2]][1]
 @
 \end{frame}
 
 
-\begin{frame}[fragile]{Importer et enregistrer des données et du code}
+\begin{frame}[fragile]{Import data and code}
 
 
 
-\ctable[caption={Les fonctions de bases pour importer et enregistrer des données et du code R},label=tab:table1,pos=h!,doinside=\small]{lccc}{\tnote{chaque valeur est séparée par un espace}\tnote[b]{chaque valeur est séparée par une virgule}\tnote[c]{objets dans ton espace de travail (Environment)}
+\ctable[caption={Functions for importing data and code},label=tab:table1,pos=h!,doinside=\small]{lccc}{\tnote{value is separated by a space}\tnote[b]{each value is separated by a comma}\tnote[c]{objects in your working environment}
 }{
     																\FL
-        	  & fichiers	           &	 objets\tmark[c]  &    script R\ML
-importer  & \code{read.table()\tmark} &       \code{load()} &   \code{source()}    \NN
+        	  & files	           &	 objects\tmark[c]  &    R script\ML
+import  & \code{read.table()\tmark} &       \code{load()} &   \code{source()}    \NN
           &  \code{read.csv()\tmark[b]}  &                 &                 \ML
-enregistrer  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
+save  & \code{write.table()} &  \code{save()} &   File -> Save As..         \NN
              & \code{write.csv()}   &    \LL
 } 
 
@@ -1291,23 +1279,23 @@ enregistrer  & \code{write.table()} &  \code{save()} &   File -> Save As..      
 \end{frame}
 
 
-\begin{frame}[fragile]{Importer des données}
+\begin{frame}[fragile]{Import data}
 \begin{itemize}
   \setlength\itemsep{2em}
-\item Il est nécessaire de préciser le chemin d'accès au fichier s'il n'est pas dans le répertoire de travail
+\item You must specify where the data is located on your hard drive
 \begin{itemize}
 \normalsize
-\pause \item \code{getwd()}: conna\^{i}tre le répertoire de travail
-\pause \item \code{setwd()}: modifier le répertoire de travail
+\pause \item \code{getwd()}: to know the working directory
+\pause \item \code{setwd()}: to modify the working directory
 \end{itemize}
 \end{itemize}
 \pause 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# modifier le répertoire de travail
-setwd("~/git_repositories/atelier-R-GERAD/data")
+# modify working directory
+setwd("~/git_repositories/npu/data")
 
-# importer les fichiers
-# affectation aux objets 'lung' et 'admit'
+# import the files
+# assign it to the 'lung' and 'admit' objects
 lung <- read.csv("lung.csv")
 
 admit <- read.table("admit.txt")
@@ -1317,23 +1305,23 @@ admit <- read.table("admit.txt")
 
 
 
-\begin{frame}[fragile]{Importer du code R à partir d'un script}
+\begin{frame}[fragile]{Import code from an R Script}
 
 <<rcode=TRUE, eval = FALSE, tidy = FALSE, size = 'small'>>=
-# modifier le répertoire de travail
-setwd("~/git_repositories/atelier-R-GERAD/script")
+# modify the working directory
+setwd("~/git_repositories/npu/script")
 
-# exécute les commandes R du script 'mtcars.R'
-# et montre le output
+# execute the commands of the RScript 'mtcars.R'
+# and show the output
 source("mtcars.R", echo = TRUE)
 
-# sauvegarde les objets du environment
+# save the results in an RData object
 save(df, fit, file = "mtcars.RData")
 
-# supprime les objets de ton environment
+# delete the R objects
 rm(df, fit)
 
-# importer les objets R de 'mtcars.RData'
+# import the R objects saved in 'mtcars.RData'
 load("mtcars.RData")
 @
 \end{frame}
@@ -1341,39 +1329,37 @@ load("mtcars.RData")
 
 
 
-\begin{frame}[fragile]{Installer des \textit{packages} additionnels dans R}
+\begin{frame}[fragile]{Instal \textit{packages} in R}
 
 \begin{itemize}
   \setlength\itemsep{1em}
-\item Un \textit{\textbf{package}} R est un ensemble cohérent de fonctions, de jeux de données et de documentation permettant de compléter les fonctionnalités du
-système ou d'en ajouter de nouvelles
-\item La liste complète de ces packages est disponible sur le site \href{http://www.r-pkg.org/}{METACRAN}
+\item A R \textit{\textbf{package}} is a collection of functions, data and documentation that allows a user to perform other tasks.
+\item A list of these packages is available at \url{http://www.r-pkg.org/}
 \end{itemize}
 \pause
 <<rcode=TRUE, eval = FALSE, tidy = FALSE>>=
-# installer des packages pour créer des rapports
-# reproductibles
+# install packages for reproducible code
 install.packages(c("knitr","rmarkdown"))
 
-# pour avoir accès aux fonctions dans ces packages
+# to get access to those functions
 library(knitr)
 library(rmarkdown)
 @
 \end{frame}
 
 
-\subsection{Sommaire}
+\subsection{Summary}
 
 \begin{frame}
  \begin{center}
-  \Huge{\textcolor{red}{Sommaire}}
+  \Huge{\textcolor{red}{Summary}}
  \end{center}
 \end{frame}
 
 
 
 
-\begin{frame}{Sommaire des commandes de bases}
+\begin{frame}{Summary of basic R commands}
  %\hspace*{-1.9cm}\parbox[t]{\textwidth}{
 \begin{tikzpicture}
 \node (expr) [startstop] {\code{sessionInfo()}
@@ -1395,13 +1381,13 @@ library(rmarkdown)
 \code{source()}};
 \draw[decoration={brace,raise=5pt, amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]expr.south west) -- ([yshift=1pt]expr.north west) node [black,midway,xshift=-2cm] 
-{\footnotesize Espace de travail};
+{\footnotesize Working Environment};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]fat.south west) -- ([yshift=1pt]fat.north west) node [black,midway,xshift=-2.6cm] 
-{\footnotesize Objets R les plus utilisés};
+{\footnotesize Frequently used R objects};
 \draw[decoration={brace,raise=5pt,amplitude=10pt},decorate,line width=1pt] 
   ([yshift=-1pt]script.south west) -- ([yshift=1pt]script.north west) node [black,midway,xshift=-3cm] 
-{\footnotesize Accéder les données et scripts R};
+{\footnotesize Access to external data and scripts};
 \end{tikzpicture}
 %}
 \end{frame}
@@ -1409,13 +1395,13 @@ library(rmarkdown)
 
 
 
-\section{3. Graphiques}
+\section{3. R Graphics}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]
 \hspace*{-1.0cm}\parbox[t]{\textwidth}{
  \begin{center}
-  \Huge{\textcolor{white}{3. Graphiques}}
+  \Huge{\textcolor{white}{3. R Graphics}}
  \end{center}
  }
 \end{frame}
@@ -1618,7 +1604,7 @@ dev.off()
 
 
 
-\section{4. Statistiques}
+\section{4. Statistics}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]
@@ -1893,7 +1879,7 @@ summary(fit.glm)
 
 
 
-\section{5. Rapports reproductibles}
+\section{5. Reproducible Reports}
 
 \setbeamercolor{normal text}{fg=gray,bg=black}
 \begin{frame}[plain]
