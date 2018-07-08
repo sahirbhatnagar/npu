@@ -2,12 +2,9 @@
 
 Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) and [Yi Yang](http://www.math.mcgill.ca/yyang/)
 
-**Date**: Mercredi le 29 juillet, 2015, 09H00--17H00  
-**Location**: NPU
-**Slides**: [pdf](https://github.com/sahirbhatnagar/atelier-R-GERAD/blob/master/pr%C3%A9sentation/atelier-R-GERAD.pdf)
-**Code**: 
-* [R script](https://raw.githubusercontent.com/sahirbhatnagar/atelier-R-GERAD/master/script/atelier-R-GERAD.R)  
-* [RMarkdown](https://raw.githubusercontent.com/sahirbhatnagar/atelier-R-GERAD/master/markdown/test.Rmd)  
+**Date**: July 8-11, 2018
+**Location**: Northwestern Polytechical University    
+**Slides**: [pdf](https://github.com/sahirbhatnagar/npu/blob/master/slides/npu-xian-2018.pdf)  
 
 
 ----
