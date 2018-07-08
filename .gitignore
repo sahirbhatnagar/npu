@@ -134,3 +134,4 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+.Rproj.user

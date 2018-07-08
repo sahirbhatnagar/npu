@@ -1,0 +1,72 @@
+---
+title: "Atelier sur le logiciel R"
+author: "sahir"
+date: "July 29, 2015"
+output: html_document
+---
+
+# Introduction de RMarkdown
+
+* Pour cacher le code dans le document HTML, utiliser l'argument `echo = FALSE` dans le code chunk. 
+* Pour ne pas &eacute;valuer le code, utiliser l'argument `eval = FALSE`.
+* La liste compl&egrave;te des options: [http://yihui.name/knitr/options/](http://yihui.name/knitr/options/)
+
+
+```{r test1,echo=FALSE,eval=FALSE}
+source("~/git_repositories/atelier-R-GERAD/script/mtcars.R", echo = T)
+```
+
+
+```{r test2, echo=FALSE}
+# viens pré-installer avec R)
+df <- mtcars
+
+df <- mtcars[-1,]
+
+# voir les variables en df
+# str(df)
+
+# histogram de mpg
+hist(mtcars[,"mpg"])
+
+# régression linéaire
+fit <- lm(mpg ~ disp, data=df)
+
+# sommaire des résultat
+# summary(fit)
+```
+
+L'&eacute;cart type est `r sd(mtcars$mpg)`
+
+
+```{r}
+# Il faut installer le package 'DT'
+library(DT)
+datatable(iris, options = list(pageLength = 5))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
