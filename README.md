@@ -4,7 +4,7 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
 
 **Date**: July 8-11, 2018  
 **Location**: Northwestern Polytechical University    
-**Slides**: [pdf1](https://github.com/sahirbhatnagar/npu/blob/master/slides/npu-xian-2018.pdf), [pdf2](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf)  
+**Slides**: [pdf1](https://github.com/sahirbhatnagar/npu/blob/master/slides/npu-xian-2018.pdf), [pdf2](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf), [rmarkdown example](https://github.com/sahirbhatnagar/CSSC2018), [create a website](https://sahirbhatnagar.com/CSSC2018/)  
 
 
 ----
