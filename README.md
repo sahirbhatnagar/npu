@@ -4,8 +4,40 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
 
 **Date**: July 8-11, 2018  
 **Location**: Northwestern Polytechical University    
-**Slides**: [pdf1](https://github.com/sahirbhatnagar/npu/blob/master/slides/npu-xian-2018.pdf), [pdf2](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf), [rmarkdown example](https://github.com/sahirbhatnagar/CSSC2018), [create a website](https://sahirbhatnagar.com/CSSC2018/)  
+**Slides**: , [pdf2](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf), [rmarkdown example](https://github.com/sahirbhatnagar/CSSC2018), [create a website](https://sahirbhatnagar.com/CSSC2018/)  
 
+----
+
+## Course Outline  
+
+1. [An Introduction to Programming in R](https://github.com/sahirbhatnagar/npu/blob/master/resources/npu-xian-2018.pdf)
+    * Background on the R language  
+    * Basics of R  
+    * R Graphics  
+    * Basic Statistics  
+    * Reproducible Reports with RMarkdown and knitr  
+2. [Reproducible Research: An Introduction to knitr](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf)  
+    * A motivating example  
+    * Installing RStudio, knitr  
+    * [Link to Examples](https://github.com/sahirbhatnagar/knitr-tutorial)  
+3. [An Introduction to LaTeX](https://github.com/sahirbhatnagar/npu/blob/master/resources/intro-to-latex.pdf)  
+    * Installing LaTeX and TeXStudio    
+    * What is LaTeX and why is it useful  
+    * Getting Started  
+    * Writing with LaTeX  
+    * Mathematical Equations  
+    * Tables and Graphics  
+    * Creating References  
+4. [An Introduction to Git and GitHub](https://sahirbhatnagar.com/git4ds/)  
+    * Installing Git  
+    * Signup for a GitHub account  
+    * Install GitHub Desktop  
+    * Version control R code  
+    * Create a branch, pull request, merge  
+    * Brief Intro to RStudio Git Functionality  
+    * Create and publish RMarkdown  
+    * Create and online CV  
+5. [Create a Website with GitHub](https://sahirbhatnagar.com/CSSC2018/)  
 
 ----
 
@@ -68,9 +100,5 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
 
 ----
 
-<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Cette cr&eacute;ation est mise &agrave; disposition selon le contrat <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.fr">Attribution-Partage dans les m&ecirc;mes conditions 4.0 International</a>  de Creative Commons.  
-
-Vous &ecirc;tes autoris&eacute; &agrave;:  
-* **Partager** — copier, distribuer et communiquer le mat&eacute;riel par tous moyens et sous tous formats
-* **Adapter** — remixer, transformer et cr&eacute;er &agrave; partir du mat&eacute;riel pour toute utilisation, y compris commerciale.
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
 
