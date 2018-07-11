@@ -16,11 +16,12 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
     * R Graphics  
     * Basic Statistics  
     * Reproducible Reports with RMarkdown and knitr  
-2. [Reproducible Research: An Introduction to knitr](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf)  
+2. [Reproducible Research with knitr](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf)  
     * A motivating example  
     * Installing RStudio, knitr  
+    * [Basic knitr example](https://github.com/sahirbhatnagar/npu/blob/master/demos/001-basic-knitr-example)  
     * [Link to Examples](https://github.com/sahirbhatnagar/knitr-tutorial)  
-3. [An Introduction to LaTeX](https://github.com/sahirbhatnagar/npu/blob/master/resources/intro-to-latex.pdf)  
+3. [An Introduction to LaTeX](https://github.com/sahirbhatnagar/npu/blob/master/resources/intro-to-latex.pdf)   
     * Installing LaTeX and TeXStudio    
     * What is LaTeX and why is it useful  
     * Getting Started  
@@ -28,16 +29,18 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
     * Mathematical Equations  
     * Tables and Graphics  
     * Creating References  
-4. [An Introduction to Git and GitHub](https://sahirbhatnagar.com/git4ds/)  
+    * Live demonstration of [LyK editor](https://www.lyx.org/)  
+4. [A primer on Regression Trees](https://github.com/sahirbhatnagar/npu/blob/master/resources/cart_animation_EN_Feb19_Final.pdf)  
+5. [An Introduction to Git and GitHub](https://sahirbhatnagar.com/git4ds/)  
     * Installing Git  
     * Signup for a GitHub account  
     * Install GitHub Desktop  
     * Version control R code  
     * Create a branch, pull request, merge  
     * Brief Intro to RStudio Git Functionality  
-    * Create and publish RMarkdown  
+    * Create and publish RMarkdown    
     * Create and online CV  
-5. [Create a Website with GitHub](https://sahirbhatnagar.com/CSSC2018/)  
+6. [Create a Website with GitHub](https://sahirbhatnagar.com/CSSC2018/)  
 
 ----
 
