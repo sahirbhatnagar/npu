@@ -3,8 +3,7 @@
 Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) and [Yi Yang](http://www.math.mcgill.ca/yyang/)
 
 **Date**: July 8-11, 2018  
-**Location**: Northwestern Polytechical University    
-**Slides**: , [pdf2](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf), [rmarkdown example](https://github.com/sahirbhatnagar/CSSC2018), [create a website](https://sahirbhatnagar.com/CSSC2018/)  
+**Location**: Northwestern Polytechical University, Xi'an, China    
 
 ----
 
@@ -16,6 +15,7 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
     * R Graphics  
     * Basic Statistics  
     * Reproducible Reports with RMarkdown and knitr  
+    * [Link to the source code used to produce _An Introduction to Programming in R_ slides](https://github.com/sahirbhatnagar/npu/blob/master/slides_source/npu-xian-2018/)  
 2. [Reproducible Research with knitr](https://github.com/sahirbhatnagar/knitr-tutorial/blob/master/slides/mcgill-knitr.pdf)  
     * A motivating example  
     * Installing RStudio, knitr  
@@ -31,7 +31,11 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
     * Creating References  
     * Live demonstration of [LyK editor](https://www.lyx.org/)  
 4. [A primer on Regression Trees](https://github.com/sahirbhatnagar/npu/blob/master/resources/cart_animation_EN_Feb19_Final.pdf)  
-5. [An Introduction to Git and GitHub](https://sahirbhatnagar.com/git4ds/)  
+    * [Link to exercise](https://github.com/sahirbhatnagar/npu/blob/master/exercises/001-regression-trees.md)  
+5. [Boosting](https://github.com/sahirbhatnagar/npu/blob/master/resources/gbm-slides.pdf)
+    * [Gradient Boosting notes](https://github.com/sahirbhatnagar/npu/blob/master/resources/note_GBM_knitr.pdf)  
+    * [Link to the source code used to produce _Gradient Boosting notes_](https://github.com/sahirbhatnagar/npu/blob/master/slides_source/gbm/)  
+6. [An Introduction to Git and GitHub](https://sahirbhatnagar.com/git4ds/)  
     * Installing Git  
     * Signup for a GitHub account  
     * Install GitHub Desktop  
@@ -40,7 +44,7 @@ Presented by [Sahir Bhatnagar](http://sahirbhatnagar.com/) (McGill University) a
     * Brief Intro to RStudio Git Functionality  
     * Create and publish RMarkdown    
     * Create and online CV  
-6. [Create a Website with GitHub](https://sahirbhatnagar.com/CSSC2018/)  
+7. [Create a Website with GitHub](https://sahirbhatnagar.com/CSSC2018/)  
 
 ----
 

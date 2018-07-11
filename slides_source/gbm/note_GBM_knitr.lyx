@@ -1,0 +1,1090 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\RestyleAlgo{algoruled} 
+\usepackage{xcolor}
+\usepackage{sectsty}
+\sectionfont{\color{cyan}}  % sets colour of chapters
+\subsectionfont{\color{cyan}}  % sets colour of sections
+\end_preamble
+\use_default_options true
+\begin_modules
+knitr
+fix-cm
+theorems-ams-bytype
+theorems-ams-extended-bytype
+changebars
+enumitem
+fixltx2e
+algorithm2e
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swedish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\rnp}{\mathbb{R}^{n\times p}}
+{\mathbb{R}^{n\times p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rpp}{\mathbb{R}^{p\times p}}
+{\mathbb{R}^{p\times p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\r}{\mathbb{R}}
+{\mathbb{R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rn}{\mathbb{R}^{n}}
+{\mathbb{R}^{n}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rp}{\mathbb{R}^{p}}
+{\mathbb{R}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\xx}{X'X}
+{X'X}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\lpp}{\lambda_{pp}}
+{\lambda_{pp}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\l}{\lambda_{11}}
+{\lambda_{11}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ll}{\lambda_{22}}
+{\lambda_{22}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\xy}{X'Y}
+{X'Y}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\xxb}{X'X\beta}
+{X'X\beta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ixx}{(X'X)^{-1}}
+{(X'X)^{-1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bh}{\hat{\beta}}
+{\hat{\beta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ols}{\xx\hat{\beta}=\xy}
+{\xx\hat{\beta}=\xy}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ddd}{,\ldots,}
+{,\ldots,}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\spz}{\mathbb{S}_{0}^{p}}
+{\mathbb{S}_{0}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\spp}{\mathbb{S}_{+}^{p}}
+{\mathbb{S}_{+}^{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ftr}{f:\Theta\rightarrow\r}
+{f:\Theta\rightarrow\r}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tinr}{\Theta\in\r}
+{\Theta\in\r}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tkp}{\theta^{(k+1)}}
+{\theta^{(k+1)}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tk}{\theta^{(k)}}
+{\theta^{(k)}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\dk}{d^{(k)}}
+{d^{(k)}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\amin}{\arg\min}
+{\arg\min}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\uinr}{u\in\r}
+{u\in\r}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\nf}{\nabla f(\tk)}
+{\nabla f(\tk)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bt}{\boldsymbol{\theta}}
+{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ntf}{\nabla^{2}f(\tk)}
+{\nabla^{2}f(\tk)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tb}{\bar{\theta}}
+{\bar{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tjk}{\theta^{j(k)}}
+{\theta^{j(k)}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tjko}{\theta^{j(k+1)}}
+{\theta^{j(k+1)}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\jk}{j(k)}
+{j(k)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\muk}{\boldsymbol{\mu}_{k}}
+{\boldsymbol{\mu}_{k}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sk}{\boldsymbol{\Sigma}_{k}}
+{\boldsymbol{\Sigma}_{k}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bx}{\mathbf{x}}
+{\mathbf{x}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bz}{\mathbf{z}}
+{\mathbf{z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sumn}{\sum_{n=1}^{N}}
+{\sum_{n=1}^{N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\sumk}{\sum_{k=1}^{K}}
+{\sum_{k=1}^{K}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+
+\series bold
+\color cyan
+MATH 680 Computation Intensive Statistics
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size large
+Gradient Boosting
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Gradient Boosting
+\end_layout
+
+\begin_layout Standard
+Predictive learning problem
+\end_layout
+
+\begin_layout Itemize
+A random “output” or “response” variable 
+\begin_inset Formula $y$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+A set of random “input” or “explanatory” variables 
+\begin_inset Formula $\mathbf{x}=(x_{1}\ddd x_{p})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Theoretically, if the joint distribution of 
+\begin_inset Formula $(y,\mathbf{x})$
+\end_inset
+
+ is known, then we can obtain
+\begin_inset Formula 
+\[
+f^{*}(\bx)=\underset{f}{\arg\min}E_{y,\bx}L(y,f(\bx))=\underset{f}{\arg\min}E_{\bx}[E_{y}(L(y,f(\bx)))|\bx].
+\]
+
+\end_inset
+
+Given 
+\begin_inset Formula $\{y_{i},\mathbf{x}_{i}\}_{i=1}^{N}$
+\end_inset
+
+ of know 
+\begin_inset Formula $(y,\mathbf{x})$
+\end_inset
+
+-values, the goal is to obtain an estimate 
+\begin_inset Formula $\hat{f}(\mathbf{x})$
+\end_inset
+
+, as the approximation of 
+\begin_inset Formula $f^{*}(\mathbf{x})$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\hat{f}(x)=\underset{f}{\arg\min}\frac{1}{N}\sum_{i=1}^{N}L(y_{i},f(\mathbf{x}_{i})).\label{eq:emp_gbm}
+\end{equation}
+
+\end_inset
+
+Let 
+\begin_inset Formula $L(f)=\frac{1}{N}\sum_{i=1}^{N}L(y_{i},f(\mathbf{x}_{i}))$
+\end_inset
+
+, solving 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:emp_gbm"
+
+\end_inset
+
+ is equivalent to solving 
+\begin_inset Formula 
+\[
+\hat{f}=\underset{f}{\arg\min}L(f),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f=(f(\bx_{1}),f(\bx_{2})\ddd f(\bx_{N}))$
+\end_inset
+
+ are the 
+\begin_inset Quotes sld
+\end_inset
+
+parameters
+\begin_inset Quotes srd
+\end_inset
+
+.
+ We will solve this stagewise, using gradient descent.
+ At step 
+\begin_inset Formula $m$
+\end_inset
+
+, let 
+\begin_inset Formula $g_{m}$
+\end_inset
+
+ be the negative gradient of 
+\begin_inset Formula $L(f)$
+\end_inset
+
+ evaluated at 
+\begin_inset Formula $f=f_{m-1}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{equation}
+g_{im}=-\left[\frac{\partial L(f)}{\partial f}\right]_{f=f_{m-1}}=-\left[\frac{\partial\left(\frac{1}{N}\sum_{i=1}^{N}L(y_{i},f(\mathbf{x}_{i}))\right)}{\partial f(\bx_{i})}\right]_{f=f_{m-1}}\label{eq:grad}
+\end{equation}
+
+\end_inset
+
+We then make the update
+\begin_inset Formula 
+\[
+f_{m}=f_{m-1}+\rho_{m}g_{m}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\rho_{m}$
+\end_inset
+
+ is the step length, chosen by 
+\begin_inset Formula 
+\[
+\rho_{m}=\underset{\rho}{\amin}L(f_{m-1}+\rho g_{m}).
+\]
+
+\end_inset
+
+This is called functional gradient descent.
+ In its current form, this is not much use, since the gradient 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:grad"
+
+\end_inset
+
+ is defined only at the training data points 
+\begin_inset Formula $\bx_{i}$
+\end_inset
+
+, so we 
+\series bold
+can not
+\series default
+ learn a function that can 
+\series bold
+generalize
+\series default
+.
+ The ultimate goal is to generalize 
+\begin_inset Formula $f_{m}$
+\end_inset
+
+ to new data not represented in the training set.
+\end_layout
+
+\begin_layout Standard
+However, we can modify the algorithm by fitting a weak learner to approximate
+ the negative gradient signal.
+ That is, we use this update
+\begin_inset Formula 
+\begin{equation}
+\gamma_{m}=\underset{\gamma}{\amin}\sum_{i=1}^{N}(g_{im}-\phi(\bx_{i};\gamma))^{2}\label{eq:fit_grad}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Box Doublebox
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "c"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "6pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+Note
+\series default
+: When 
+\begin_inset Formula $L(f)=(y-f)^{2}$
+\end_inset
+
+, solving 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fit_grad"
+
+\end_inset
+
+ is equivalent to solving 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:resid_boosting"
+
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $g=-\frac{\partial L(f)}{\partial f}=2(y-f)$
+\end_inset
+
+, negative gradient 
+\begin_inset Formula $g$
+\end_inset
+
+ is just residual 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The overall algorithm is summarized below.
+ (We have omitted the line search step, which is not strictly necessary,
+ as argued in (Buhlmann and Hothorn 2007).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Initialize $f_0(
+\backslash
+bx)=
+\backslash
+underset{
+\backslash
+gamma}{
+\backslash
+amin}
+\backslash
+sum_{i=1}^{N}L(y_{i},
+\backslash
+phi(
+\backslash
+bx_i;
+\backslash
+gamma))$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+For{$m=1
+\backslash
+ddd M$}{
+\end_layout
+
+\begin_layout Plain Layout
+
+Compute the gradient residual using $g_{im}=-
+\backslash
+left[
+\backslash
+frac{
+\backslash
+partial
+\backslash
+left(
+\backslash
+frac{1}{N}
+\backslash
+sum_{i=1}^{N}
+\backslash
+Phi(y_{i},f(
+\backslash
+mathbf{x}_{i}))
+\backslash
+right)}{
+\backslash
+partial f(
+\backslash
+bx_{i})}
+\backslash
+right]_{f(
+\backslash
+bx_i)=f_{m-1}(
+\backslash
+bx_i)}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+Use the weak learner to compute $
+\backslash
+gamma_m$ which minimizes $
+\backslash
+sum_{i=1}^{N}(g_{im}-
+\backslash
+phi(
+\backslash
+bx_{i};
+\backslash
+gamma))^{2}$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+Update $f_m(
+\backslash
+bx)=f_{m-1}(
+\backslash
+bx)+
+\backslash
+nu
+\backslash
+phi(
+\backslash
+bx;
+\backslash
+gamma_{m})$
+\backslash
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+Return $f(
+\backslash
+bx)=f_M(
+\backslash
+bx)$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gradient boosting
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sparse Boosting
+\end_layout
+
+\begin_layout Standard
+Suppose we use as our weak learner the following algorithm: search over
+ all possible variables 
+\begin_inset Formula $j=1\ddd p$
+\end_inset
+
+, and pick the one 
+\begin_inset Formula $j(m)$
+\end_inset
+
+ that best predicts the negative gradient.
+\begin_inset Formula 
+\[
+j(m)=\underset{j}{\amin}\left[\underset{\beta_{jm}}{\min}\sum_{i=1}^{N}(g_{im}-\beta_{jm}x_{ij})^{2}\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\phi_{m}(\bx)=\hat{\beta}_{j(m)}\mathbf{x}_{j(m)}
+\]
+
+\end_inset
+
+It is clear that this will result in a sparse estimate, at least if 
+\begin_inset Formula $M$
+\end_inset
+
+ is small.
+ To see this, let us rewrite the update as follows:
+\begin_inset Formula 
+\[
+\beta_{m}=\beta_{m-1}+\nu(0\ddd0,\hat{\beta}_{j(m)},0\ddd0)
+\]
+
+\end_inset
+
+where the non-zero entry occurs in location 
+\begin_inset Formula $j(m)$
+\end_inset
+
+.
+ This is known as forward stagewise linear regression (Hastie et al.
+ 2009, p608), which becomes equivalent to the LARS algorithm as 
+\begin_inset Formula $\nu\rightarrow0$
+\end_inset
+
+.
+ Increasing the number of steps 
+\begin_inset Formula $m$
+\end_inset
+
+ in boosting is analogous to decreasing the regularization penalty 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Now consider a weak learner that is similar to the above, except it uses
+ a smoothing spline instead of linear regression when mapping from 
+\begin_inset Formula $\bx_{j}$
+\end_inset
+
+ to the residual.
+ The result is a sparse generalized additive model (see Section 16.3).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<setup, echo=FALSE>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+library(knitr)
+\end_layout
+
+\begin_layout Plain Layout
+
+knitr::read_chunk("gbm_code.R")
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Sparse-Boosting,cache=FALSE,fig.width = 5,fig.height=5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Gradient Tree Boosting
+\end_layout
+
+\begin_layout Standard
+In the Tree Boosting case, induce a tree 
+\begin_inset Formula $T(x;\Theta_{m})$
+\end_inset
+
+ at the 
+\begin_inset Formula $m$
+\end_inset
+
+th iteration whose predictions are as close as possible to the negative
+ gradient.
+ Using squared error to measure closeness, this leads us to 
+\begin_inset Formula 
+\[
+\tilde{\Theta}_{m}=\underset{\Theta}{\amin}\sum_{i=1}^{N}(g_{im}-T(\bx_{i};\Theta))^{2}
+\]
+
+\end_inset
+
+Given the regions 
+\begin_inset Formula $R_{jm}$
+\end_inset
+
+, finding the optimal constants 
+\begin_inset Formula $\gamma_{jm}$
+\end_inset
+
+ in each region is straightforward:
+\begin_inset Formula 
+\[
+\hat{\gamma}_{jm}=\underset{\gamma_{jm}}{\amin}\sum_{\mathbf{x}_{i}\in R_{jm}}L(y_{i},f_{m-1}(\bx_{i})+\gamma_{jm}).
+\]
+
+\end_inset
+
+Advantages of gradient tree boosting:
+\end_layout
+
+\begin_layout Itemize
+Model structure is learned from data and not predetermined, avoiding an
+ explicit model specification.
+\end_layout
+
+\begin_layout Itemize
+Naturally incorporate complex and higher order interactions.
+\end_layout
+
+\begin_layout Itemize
+Produce high predictive performance.
+\end_layout
+
+\begin_layout Itemize
+Handle any type of data without the need for transformation.
+\end_layout
+
+\begin_layout Itemize
+Insensitive to outliers and missing values.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Gradient Tree Boosting Algorithm.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Initialize 
+\begin_inset Formula $f_{0}(\bx)=\underset{\gamma}{\amin}\sum_{i=1}^{N}L(y_{i},\gamma)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula $m=1,\ldots,M$
+\end_inset
+
+:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+For 
+\begin_inset Formula $i=1,2\ddd N$
+\end_inset
+
+ compute 
+\begin_inset Formula 
+\[
+g_{im}=-\left[\frac{\partial\left(\frac{1}{N}\sum_{i=1}^{N}L(y_{i},f(\mathbf{x}_{i}))\right)}{\partial f(\bx_{i})}\right]_{f=f_{m-1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fit the negative gradient vector 
+\begin_inset Formula $g_{1m},\ldots,g_{Nm}$
+\end_inset
+
+ to 
+\begin_inset Formula $\bx_{1},\ldots,\bx_{N}$
+\end_inset
+
+ by an 
+\begin_inset Formula $L$
+\end_inset
+
+-terminal node regression tree, giving us terminal regions 
+\begin_inset Formula $R_{jm}$
+\end_inset
+
+, 
+\begin_inset Formula $j=1,2\ddd J_{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For 
+\begin_inset Formula $j=1,2\ddd J_{m}$
+\end_inset
+
+ compute
+\begin_inset Formula 
+\[
+\gamma_{jm}=\arg\underset{\gamma}{\min}\frac{1}{N}\sum_{x_{i}\in R_{jm}}L(y_{i},f_{m-1}(\bx_{i})+\gamma).
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Update 
+\begin_inset Formula $f_{m}(\bx)=f_{m-1}(\bx)+\nu\sum_{j=1}^{J_{m}}\gamma_{jm}I(x\in R_{jm}).$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Report 
+\begin_inset Formula $\hat{f}(\bx)=f_{M}(\bx)$
+\end_inset
+
+ as the final estimate.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:gradient_boosting"
+
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<<Gradient-Boosting,cache=FALSE,fig.width = 5,fig.height=5>>=
+\end_layout
+
+\begin_layout Plain Layout
+
+@
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
